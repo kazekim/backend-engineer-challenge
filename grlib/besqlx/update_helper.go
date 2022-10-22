@@ -42,15 +42,17 @@ func (h *UpdateHelper) CommitUpdateQuery(tableName string) grerrors.Error {
 
 	updateQuery := ""
 	isNotFirstUpdateClause := false
+	count := 1
 	for k, v := range h.params {
 		if isNotFirstUpdateClause {
 			updateQuery = fmt.Sprintf("%v%v", updateQuery, ", ")
 		} else {
 			isNotFirstUpdateClause = true
 		}
-		updateQuery = fmt.Sprintf("%v%v = ?", updateQuery, k)
+		updateQuery = fmt.Sprintf("%v%v = $%d", updateQuery, k, count)
 
 		args = append(args, v)
+		count++
 	}
 
 	whereQuery := ""
@@ -62,9 +64,10 @@ func (h *UpdateHelper) CommitUpdateQuery(tableName string) grerrors.Error {
 			} else {
 				isNotFirstWhereClause = true
 			}
-			whereQuery = fmt.Sprintf("%v%v = ?", whereQuery, k)
+			whereQuery = fmt.Sprintf("%v%v = $%d", whereQuery, k, count)
 
 			args = append(args, v)
+			count++
 		}
 	} else {
 		return grerrors.ErrNoWhereClauseInDatabaseQuery

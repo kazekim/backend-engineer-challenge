@@ -20,8 +20,8 @@ func (s *defaultScanner) detectBeginWithWord(input ScannerInput) (bool, *GitScan
 
 //newGitScannerResultForScannerTypeBeginWithWord init GitScannerResult from rule and input object
 func newGitScannerResultForScannerTypeBeginWithWord(rule ScannerRule, input ScannerInput) GitScanningResult {
-	result := GitScanningResult {
-		Type: rule.Type,
+	result := GitScanningResult{
+		Type:   rule.Type,
 		RuleId: rule.RuleId,
 		Location: Location{
 			Path: input.FilePath,
@@ -33,7 +33,7 @@ func newGitScannerResultForScannerTypeBeginWithWord(rule ScannerRule, input Scan
 		},
 		Metadata: Metadata{
 			Description: rule.Description,
-			Severity: rule.Severity,
+			Severity:    rule.Severity,
 		},
 	}
 	return result

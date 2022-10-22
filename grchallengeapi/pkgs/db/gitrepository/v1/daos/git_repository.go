@@ -6,9 +6,9 @@ import (
 
 type GitRepository struct {
 	besqlx.IDModel
-	Name    string    `db:"name"`
-	Url    string    `db:"url"`
-	IsActive bool `db:"is_active"`
+	Name     string `db:"name"`
+	Url      string `db:"url"`
+	IsActive bool   `db:"is_active"`
 }
 
 func (pf GitRepository) TableName() string {

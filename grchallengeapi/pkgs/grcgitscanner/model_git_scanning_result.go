@@ -3,14 +3,14 @@ package grcgitscanner
 import grcenums "github.com/kazekim/backend-engineer-challenge/grchallengeapi/enums"
 
 type GitScanningResult struct {
-	Type ScannerType `json:"type"`
-	RuleId string `json:"rule_id"`
-	Location Location `json:"location"`
-	Metadata Metadata `json:"metadata"`
+	Type     ScannerType `json:"type"`
+	RuleId   string      `json:"rule_id"`
+	Location Location    `json:"location"`
+	Metadata Metadata    `json:"metadata"`
 }
 
 type Location struct {
-	Path string `json:"path"`
+	Path      string    `json:"path"`
 	Positions Positions `json:"positions"`
 }
 
@@ -23,6 +23,6 @@ type Begin struct {
 }
 
 type Metadata struct {
-	Description string `json:"description"`
-	Severity grcenums.Severity `json:"severity"`
+	Description string            `json:"description"`
+	Severity    grcenums.Severity `json:"severity"`
 }

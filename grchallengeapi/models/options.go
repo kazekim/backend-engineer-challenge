@@ -8,7 +8,7 @@ import (
 
 // Options option for new router
 type Options struct {
-	Environment         *grcenv.Environment
-	FileClient befiles.Client
+	Environment      *grcenv.Environment
+	FileClient       befiles.Client
 	GitScannerClient grcgitscanner.Client
 }

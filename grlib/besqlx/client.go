@@ -15,6 +15,7 @@ type Client interface {
 	NewUpdateHelper() *UpdateHelper
 
 	NamedExec(paramQuery, valueQuery string, arg interface{}) (sql.Result, grerrors.Error)
+	DeleteExec(arg interface{}, whereQuery string, values ...interface{}) grerrors.Error
 }
 
 type defaultClient struct {

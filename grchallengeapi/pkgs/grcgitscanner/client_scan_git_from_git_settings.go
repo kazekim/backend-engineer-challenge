@@ -40,7 +40,6 @@ func (c *defaultClient) ScanGitFromGitSettings(gs *GitSettings) (*[]GitScanningR
 				srs = append(srs, (*gsrs)...)
 			}
 
-
 			return nil
 		})
 		if vErr != nil {

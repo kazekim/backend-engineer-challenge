@@ -16,7 +16,7 @@ type Client interface {
 
 type defaultClient struct {
 	cfg *Config
-	gc begit.Client
+	gc  begit.Client
 }
 
 //NewClient new git scanner client
@@ -26,6 +26,6 @@ func NewClient(cfg *Config, fc befiles.Client) Client {
 
 	return &defaultClient{
 		cfg: cfg,
-		gc: gc,
+		gc:  gc,
 	}
 }

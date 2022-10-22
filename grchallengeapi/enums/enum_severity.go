@@ -3,7 +3,7 @@ package grcenums
 type Severity string
 
 const (
-	SeverityLow Severity = "LOW"
+	SeverityLow    Severity = "LOW"
 	SeverityMedium Severity = "MED"
-	SeverityHigh Severity = "HIGH"
+	SeverityHigh   Severity = "HIGH"
 )

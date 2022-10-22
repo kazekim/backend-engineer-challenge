@@ -7,10 +7,10 @@ import (
 
 // Environment environment
 type Environment struct {
-	Release        bool          `mapstructure:"release"`
-	ServerName     string        `mapstructure:"server_name"`
-	ServerHost     string        `mapstructure:"server_host"`
-	ServerPort     string        `mapstructure:"server_port"`
-	DatabaseConfig besqlx.Config `mapstructure:"database_config"`
-	GitConfig      grcgitscanner.Config  `mapstructure:"git_config"`
+	Release        bool                 `mapstructure:"release"`
+	ServerName     string               `mapstructure:"server_name"`
+	ServerHost     string               `mapstructure:"server_host"`
+	ServerPort     string               `mapstructure:"server_port"`
+	DatabaseConfig besqlx.Config        `mapstructure:"database_config"`
+	GitConfig      grcgitscanner.Config `mapstructure:"git_config"`
 }

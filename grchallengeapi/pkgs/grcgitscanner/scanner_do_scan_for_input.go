@@ -11,7 +11,7 @@ func (s *defaultScanner) DoScanForInput(input ScannerInput) (*[]GitScanningResul
 	var gsrs []GitScanningResult
 	switch s.rule.Type {
 	case ScannerTypeBeginWord:
-		isFound, result,vErr := s.detectBeginWithWord(input)
+		isFound, result, vErr := s.detectBeginWithWord(input)
 		if vErr != nil {
 			return nil, vErr
 		}

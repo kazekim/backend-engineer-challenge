@@ -4,18 +4,14 @@ import (
 	"database/sql"
 	"fmt"
 	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
-	"reflect"
 )
 
-//NamedExec create tow in database with query from struct
+//NamedExec create row in database with query from struct
 func (c *defaultClient) NamedExec(paramQuery, valueQuery string, arg interface{}) (sql.Result, grerrors.Error) {
-	st := reflect.TypeOf(arg)
-	tableName := ""
-	if obj, ok := arg.(interface{TableName() string}); ok {
-		tableName = obj.TableName()
-	}else{
-		eMsg := fmt.Sprintf("dao %v: has no TableName function defined", st.Name())
-		return nil, grerrors.NewDatabaseErrorWithMessage(eMsg)
+
+	tableName, vErr := parseTableName(arg)
+	if vErr != nil {
+		return nil, vErr
 	}
 
 	query := fmt.Sprintf("insert into %v (%v) values (%v)", tableName, paramQuery, valueQuery)

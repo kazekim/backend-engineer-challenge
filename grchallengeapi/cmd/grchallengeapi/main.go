@@ -31,10 +31,9 @@ func main() {
 		panic(err)
 	}
 
-
 	options := &grcmodels.Options{
-		Environment:         &cfg,
-		FileClient:           fc,
+		Environment:      &cfg,
+		FileClient:       fc,
 		GitScannerClient: gsc,
 	}
 

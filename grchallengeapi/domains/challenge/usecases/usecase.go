@@ -1,7 +1,6 @@
 package challengeusecases
 
-import (
-)
+import ()
 
 type UseCase interface {
 }

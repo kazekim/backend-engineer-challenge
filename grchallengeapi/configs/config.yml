@@ -1,0 +1,13 @@
+release: false
+server_name: "grchallengeapi"
+server_host: "http://localhost"
+server_port: "8011"
+database_config:
+  database_url: "localhost"
+  database_port: "3306"
+  database_name: "gr_db"
+  database_username: "gr_user"
+  database_password: "asdfghjkl"
+  database_log_enabled: true
+git_config:
+  root_path: "temp"

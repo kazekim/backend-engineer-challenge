@@ -81,3 +81,5 @@ fabric.properties
 playground
 
 bin/*
+
+temp/*

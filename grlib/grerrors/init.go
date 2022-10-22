@@ -18,8 +18,14 @@ func NewDefaultErrorWithMessage(message string) Error {
 	}
 }
 
-//NewBadInputError new error with bad input error code and specify message
-func NewBadInputError(message string) Error {
+//NewBadInputError new error with bad input error code and specify error
+func NewBadInputError(err string) Error {
+	vErr := NewError(ErrCodeBadInput, fmt.Sprintf("%v: %v", ErrMessageBadInput, err))
+	return vErr
+}
+
+//NewBadInputErrorWithMessage new error with bad input error code and specify message
+func NewBadInputErrorWithMessage(message string) Error {
 	vErr := NewError(ErrCodeBadInput, fmt.Sprintf("%v: %v", ErrMessageBadInput, message))
 	return vErr
 }

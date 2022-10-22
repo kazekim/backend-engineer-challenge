@@ -5,6 +5,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 )
 
+//DeleteGitRepositoryById delete git repository row by id
 func (c *defaultClient) DeleteGitRepositoryById(grId string) grerrors.Error {
 
 	var dao grcgitrepositorydbdaos.GitRepository

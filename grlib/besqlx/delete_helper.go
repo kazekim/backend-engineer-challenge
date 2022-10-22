@@ -5,6 +5,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 )
 
+//DeleteExec execute delete query with where clause
 func (c *defaultClient) DeleteExec(arg interface{}, whereQuery string, values ...interface{}) grerrors.Error {
 
 	tableName, vErr := parseTableName(arg)

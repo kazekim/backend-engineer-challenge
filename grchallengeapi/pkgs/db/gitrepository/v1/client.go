@@ -8,4 +8,5 @@ import (
 type Client interface {
 	CreateGitRepository(params *grcgitrepositorydbdaos.GitRepository) (*grcgitrepositorydbdaos.GitRepository, grerrors.Error)
 	DeleteGitRepositoryById(grId string) grerrors.Error
+	GetGitRepositoryById(id string) (*grcgitrepositorydbdaos.GitRepository, grerrors.Error)
 }

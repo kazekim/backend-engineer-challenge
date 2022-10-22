@@ -6,19 +6,19 @@ type Client interface {
 	Config() *Config
 	FileClient() befiles.Client
 
-	InitGitWithSettings(name, url string) *Git
+	InitGitWithSettings(name, url string) Git
 }
 
 type defaultClient struct {
 	cfg *Config
-	fc befiles.Client
+	fc  befiles.Client
 }
 
 //NewClient new git client
 func NewClient(cfg *Config, fc befiles.Client) Client {
 	return &defaultClient{
 		cfg: cfg,
-		fc: fc,
+		fc:  fc,
 	}
 }
 

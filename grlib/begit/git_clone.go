@@ -8,8 +8,8 @@ import (
 	"os"
 )
 
-//Clone clone git from repository
-func (g *Git) Clone() grerrors.Error {
+//Clone do clone git from repository
+func (g *defaultGit) Clone() grerrors.Error {
 
 	path := xid.New().String()
 	fullPath := fmt.Sprintf("%v/%v", g.c.Config().RootPath, path)

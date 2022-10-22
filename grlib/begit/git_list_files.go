@@ -7,7 +7,8 @@ import (
 	"strings"
 )
 
-func (g *Git) ListFiles() (*[]string, grerrors.Error) {
+//ListFiles list all files in git include absolute path
+func (g *defaultGit) ListFiles() (*[]string, grerrors.Error) {
 
 	if g.fullPath == nil {
 		return nil, grerrors.ErrGitHasNotBeenLoadedYet
@@ -21,7 +22,8 @@ func (g *Git) ListFiles() (*[]string, grerrors.Error) {
 	return files, nil
 }
 
-func (g *Git) listFilesInDir(path string) (*[]string, grerrors.Error) {
+//listFilesInDir list files in dir recursive func
+func (g *defaultGit) listFilesInDir(path string) (*[]string, grerrors.Error) {
 
 	fs, err := ioutil.ReadDir(path)
 	if err != nil {
@@ -33,12 +35,12 @@ func (g *Git) listFilesInDir(path string) (*[]string, grerrors.Error) {
 		if !file.IsDir() {
 			p := ""
 			if path != *g.fullPath {
-				p = strings.Replace(path, (*g.fullPath) + "/", "", -1)
+				p = strings.Replace(path, (*g.fullPath)+"/", "", -1)
 				p = fmt.Sprintf("%v/", p)
 			}
 			fileFullPath := fmt.Sprintf("%v%v", p, file.Name())
 			files = append(files, fileFullPath)
-		}else{
+		} else {
 			absPath := fmt.Sprintf("%v/%v", path, file.Name())
 			fds, vErr := g.listFilesInDir(absPath)
 			if vErr != nil {

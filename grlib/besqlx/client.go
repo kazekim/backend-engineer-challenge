@@ -14,7 +14,7 @@ type Client interface {
 
 type defaultClient struct {
 	cfg *Config
-	db *sqlx.DB
+	db  *sqlx.DB
 }
 
 //NewClient init besqlx client

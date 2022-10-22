@@ -7,17 +7,17 @@ import (
 )
 
 type UpdateHelper struct {
-	params         map[string]interface{}
+	params      map[string]interface{}
 	whereParams map[string]interface{}
-	db *sqlx.DB
+	db          *sqlx.DB
 }
 
 //NewUpdateHelper init code helper to make update database query code more clean
 func (c defaultClient) NewUpdateHelper() *UpdateHelper {
 	return &UpdateHelper{
-		params: make(map[string]interface{}),
+		params:      make(map[string]interface{}),
 		whereParams: make(map[string]interface{}),
-		db: c.DB(),
+		db:          c.DB(),
 	}
 }
 
@@ -45,7 +45,7 @@ func (h *UpdateHelper) CommitUpdateQuery(tableName string) grerrors.Error {
 	for k, v := range h.params {
 		if isNotFirstUpdateClause {
 			updateQuery = fmt.Sprintf("%v%v", updateQuery, ", ")
-		}else{
+		} else {
 			isNotFirstUpdateClause = true
 		}
 		updateQuery = fmt.Sprintf("%v%v = ?", updateQuery, k)
@@ -59,14 +59,14 @@ func (h *UpdateHelper) CommitUpdateQuery(tableName string) grerrors.Error {
 		for k, v := range h.whereParams {
 			if isNotFirstWhereClause {
 				whereQuery = fmt.Sprintf("%v and ", whereQuery)
-			}else{
+			} else {
 				isNotFirstWhereClause = true
 			}
 			whereQuery = fmt.Sprintf("%v%v = ?", whereQuery, k)
 
 			args = append(args, v)
 		}
-	}else{
+	} else {
 		return grerrors.ErrNoWhereClauseInDatabaseQuery
 	}
 

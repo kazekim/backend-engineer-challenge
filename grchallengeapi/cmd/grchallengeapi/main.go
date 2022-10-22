@@ -7,6 +7,7 @@ import (
 	grcrouters "github.com/kazekim/backend-engineer-challenge/grchallengeapi/routers"
 	"github.com/kazekim/backend-engineer-challenge/grlib/beenv"
 	"github.com/kazekim/backend-engineer-challenge/grlib/befiles"
+	"github.com/kazekim/backend-engineer-challenge/grlib/besqlx"
 )
 
 func main() {
@@ -23,6 +24,13 @@ func main() {
 	}
 
 	gsc := grcgitscanner.NewClient(&cfg.GitConfig, fc)
+
+	dbc := besqlx.NewClient(&cfg.DatabaseConfig)
+	err = dbc.Connect()
+	if err != nil {
+		panic(err)
+	}
+
 
 	options := &grcmodels.Options{
 		Environment:         &cfg,

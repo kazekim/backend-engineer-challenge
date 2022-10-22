@@ -11,6 +11,6 @@ type Environment struct {
 	ServerName     string        `mapstructure:"server_name"`
 	ServerHost     string        `mapstructure:"server_host"`
 	ServerPort     string        `mapstructure:"server_port"`
-	DatabaseConfig besqlx.Config `mapstructure:"legacy_database_config"`
+	DatabaseConfig besqlx.Config `mapstructure:"database_config"`
 	GitConfig      grcgitscanner.Config  `mapstructure:"git_config"`
 }

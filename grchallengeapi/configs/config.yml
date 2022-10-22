@@ -7,8 +7,9 @@ database_config:
   database_url: "localhost"
   database_port: "5433"
   database_name: "grdb"
-  database_username: "root"
+  database_username: "postgres"
   database_password: "asdfghjkl"
   database_log_enabled: true
+  database_disable_ssl_mode: true
 git_config:
   root_path: "temp"

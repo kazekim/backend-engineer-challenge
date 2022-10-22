@@ -10,6 +10,6 @@ func (c *defaultClient) Connect() error {
 	case "mysql":
 		return c.ConnectMySQL()
 	default:
-		return errors.New("invalid mysql driver")
+		return errors.New("invalid database driver")
 	}
 }

@@ -1,7 +1,9 @@
 package besqlx
 
 import (
+	"database/sql"
 	"github.com/jmoiron/sqlx"
+	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 )
 
 type Client interface {
@@ -11,6 +13,8 @@ type Client interface {
 	Connect() error
 
 	NewUpdateHelper() *UpdateHelper
+
+	NamedExec(paramQuery, valueQuery string, arg interface{}) (sql.Result, grerrors.Error)
 }
 
 type defaultClient struct {

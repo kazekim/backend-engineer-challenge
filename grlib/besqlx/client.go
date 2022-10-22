@@ -16,7 +16,9 @@ type Client interface {
 
 	NamedExec(paramQuery, valueQuery string, arg interface{}) (sql.Result, grerrors.Error)
 	DeleteExec(arg interface{}, whereQuery string, values ...interface{}) grerrors.Error
-	Get(dest interface{}, query string, args ...interface{}) error
+	Get(dest interface{}, query string, args ...interface{}) grerrors.Error
+	Select(model interface{}, dest interface{}, qb SelectQueryBuilder) grerrors.Error
+	Count(model interface{}, whereQuery string, args []interface{}) (int64, grerrors.Error)
 }
 
 type defaultClient struct {

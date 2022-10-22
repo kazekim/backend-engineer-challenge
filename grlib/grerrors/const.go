@@ -15,4 +15,5 @@ var (
 	ErrCreateDirectoryFailed        = NewError(ErrCodeCreateDirectoryFailed, ErrMessageCreateDirectoryFailed)
 	ErrUnsupportedFileType          = NewError(ErrCodeUnsupportedFileType, ErrMessageUnsupportedFileType)
 	ErrNoWhereClauseInDatabaseQuery = NewError(ErrCodeNoWhereClauseInDatabaseQuery, ErrMessageNoWhereClauseInDatabaseQuery)
+	ErrGitHasNotBeenLoadedYet       = NewError(ErrCodeGitHasNotBeenLoadedYet, ErrMessageGitHasNotBeenLoadedYet)
 )

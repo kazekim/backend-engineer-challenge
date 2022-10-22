@@ -10,7 +10,6 @@ func NewDefaultError(message error) Error {
 	}
 }
 
-
 //NewBadInputError new error with bad input error code and specify message
 func NewBadInputError(message string) Error {
 	vErr := NewError(ErrCodeBadInput, fmt.Sprintf("%v: %v", ErrMessageBadInput, message))

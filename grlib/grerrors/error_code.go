@@ -15,4 +15,5 @@ const (
 	ErrCodeUnsupportedFileType          ErrorCode = 1010
 	ErrCodeDatabaseError                ErrorCode = 1011
 	ErrCodeNoWhereClauseInDatabaseQuery ErrorCode = 1012
+	ErrCodeGitHasNotBeenLoadedYet       ErrorCode = 1013
 )

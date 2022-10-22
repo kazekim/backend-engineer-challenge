@@ -7,7 +7,7 @@ type Git interface {
 
 	Clone() grerrors.Error
 	ListFiles() (*[]string, grerrors.Error)
-	ScanFileByLine(fileFullPath string, rf func(data string) grerrors.Error) grerrors.Error
+	ScanFileByLine(fileFullPath string, rf func(data string, line int64) grerrors.Error) grerrors.Error
 }
 
 type defaultGit struct {

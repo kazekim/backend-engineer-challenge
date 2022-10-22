@@ -8,7 +8,7 @@ import (
 )
 
 //ScanFileByLine scan file and do action in rf func by line
-func (g *defaultGit) ScanFileByLine(fileFullPath string, rf func(data string) grerrors.Error) grerrors.Error {
+func (g *defaultGit) ScanFileByLine(fileFullPath string, rf func(data string, line int64) grerrors.Error) grerrors.Error {
 
 	if g.fullPath == nil {
 		return grerrors.ErrGitHasNotBeenLoadedYet
@@ -28,11 +28,13 @@ func (g *defaultGit) ScanFileByLine(fileFullPath string, rf func(data string) gr
 	buf := make([]byte, maxCapacity)
 	scanner.Buffer(buf, maxCapacity)
 
+	line := int64(1)
 	for scanner.Scan() {
-		vErr := rf(scanner.Text())
+		vErr := rf(scanner.Text(), line)
 		if vErr != nil {
 			return vErr
 		}
+		line++
 	}
 
 	if err := scanner.Err(); err != nil {

@@ -2,11 +2,19 @@ package grerrors
 
 import "fmt"
 
-//NewDefaultError new error with internal error code and specify message
-func NewDefaultError(message error) Error {
+//NewDefaultError new error with internal error code and specify error
+func NewDefaultError(err error) Error {
 	return &defaultError{
 		CodeValue:    ErrCodeInternalServerError,
-		MessageValue: message.Error(),
+		MessageValue: err.Error(),
+	}
+}
+
+//NewDefaultErrorWithMessage new error with internal error code and specify message
+func NewDefaultErrorWithMessage(message string) Error {
+	return &defaultError{
+		CodeValue:    ErrCodeInternalServerError,
+		MessageValue: message,
 	}
 }
 

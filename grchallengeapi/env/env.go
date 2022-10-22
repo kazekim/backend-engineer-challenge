@@ -1,7 +1,7 @@
 package grcenv
 
 import (
-	"github.com/kazekim/backend-engineer-challenge/grlib/begit"
+	"github.com/kazekim/backend-engineer-challenge/grchallengeapi/pkgs/grcgitscanner"
 	"github.com/kazekim/backend-engineer-challenge/grlib/besqlx"
 )
 
@@ -12,5 +12,5 @@ type Environment struct {
 	ServerHost     string        `mapstructure:"server_host"`
 	ServerPort     string        `mapstructure:"server_port"`
 	DatabaseConfig besqlx.Config `mapstructure:"legacy_database_config"`
-	GitConfig      begit.Config  `mapstructure:"git_config"`
+	GitConfig      grcgitscanner.Config  `mapstructure:"git_config"`
 }

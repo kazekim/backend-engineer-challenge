@@ -1,6 +1,7 @@
 package besqlx
 
 type Config struct {
+	DatabaseDriver            string `json:"database_driver" mapstructure:"database_driver"`
 	DatabaseUrl            string `json:"database_url" mapstructure:"database_url"`
 	DatabasePort           string `json:"database_port" mapstructure:"database_port"`
 	DatabaseName           string `json:"database_name" mapstructure:"database_name"`

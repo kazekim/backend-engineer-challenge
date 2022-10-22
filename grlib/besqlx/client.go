@@ -8,6 +8,7 @@ type Client interface {
 	DB() *sqlx.DB
 	ConnectPostgres() error
 	ConnectMySQL() error
+	Connect() error
 
 	NewUpdateHelper() *UpdateHelper
 }

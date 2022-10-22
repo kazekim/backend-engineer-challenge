@@ -3,10 +3,11 @@ server_name: "grchallengeapi"
 server_host: "http://localhost"
 server_port: "8011"
 database_config:
+  database_driver: "postgres"
   database_url: "localhost"
-  database_port: "3306"
-  database_name: "gr_db"
-  database_username: "gr_user"
+  database_port: "5433"
+  database_name: "grdb"
+  database_username: "root"
   database_password: "asdfghjkl"
   database_log_enabled: true
 git_config:

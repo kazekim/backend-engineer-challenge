@@ -8,6 +8,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/befiles"
 	"github.com/kazekim/backend-engineer-challenge/grlib/besqlx"
 	grgitrepositorydb "github.com/kazekim/backend-engineer-challenge/grlib/db/gitrepository/v1"
+	"github.com/kazekim/backend-engineer-challenge/grlib/grscankafka"
 )
 
 func main() {
@@ -31,10 +32,13 @@ func main() {
 
 	grdbc := grgitrepositorydb.NewClient(dbc)
 
+	grmqc := grscankafka.NewClient(&cfg.GitScannerMQConfig)
+
 	options := &grcmodels.Options{
 		Environment:           &cfg,
 		FileClient:            fc,
 		GitRepositoryDBClient: grdbc,
+		GitScannerMQClient: grmqc,
 	}
 
 	// -----------

@@ -25,7 +25,7 @@ func main() {
 		panic(vErr)
 	}
 
-	gsc := grgitscanner.NewClient(&cfg.GitConfig, fc)
+	gsc := grgitscanner.NewClient(&cfg.GitScannerConfig, fc)
 
 	gskc := grscankafka.NewClient(&cfg.GitScannerMQConfig)
 

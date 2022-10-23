@@ -6,6 +6,8 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grmodels"
 )
 
-type UseCase interface {
-	CreateGitRepository(data challengemodels.CreateGitRepositoryData) (*grmodels.GitRepository, grerrors.Error)
+//CreateGitRepository create git repository from input data
+func (u *defaultUseCase) CreateGitRepository(data challengemodels.CreateGitRepositoryData) (*grmodels.GitRepository, grerrors.Error) {
+
+	return u.cr.CreateGitRepository(data)
 }

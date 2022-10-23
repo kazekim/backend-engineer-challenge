@@ -15,10 +15,14 @@ func (h *defaultHandler) FrontCreateGitRepository(c *begincontext.Context) {
 		return
 	}
 
-	id := "asdfg"
+	m, vErr := h.cu.CreateGitRepository(req.CreateGitRepositoryData)
+	if vErr != nil {
+		c.CreateResponseError(vErr)
+		return
+	}
 
 	resp := challengemodels.FrontCreateGitRepositoryResponse{
-		RepositoryId: id,
+		Data: *m,
 	}
 
 	c.CreateResponseSuccess(resp)

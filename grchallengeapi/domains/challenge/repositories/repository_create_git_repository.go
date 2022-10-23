@@ -11,8 +11,8 @@ import (
 func (r *defaultRepository) CreateGitRepository(data challengemodels.CreateGitRepositoryData) (*grmodels.GitRepository, grerrors.Error) {
 
 	params := grgitrepositorydbdaos.GitRepository{
-		Name: data.Name,
-		Url: data.Url,
+		Name:     data.Name,
+		Url:      data.Url,
 		IsActive: true,
 	}
 

@@ -11,8 +11,8 @@ import (
 func (r *defaultRepository) ListGitRepositories(filter challengemodels.GitRepositoryFilterData, values ...int64) (*[]grmodels.GitRepository, int64, grerrors.Error) {
 
 	fParams := grgitrepositorydbdaos.GitRepositoryFilter{
-		Id: filter.Id,
-		Name: filter.Name,
+		Id:       filter.Id,
+		Name:     filter.Name,
 		IsActive: filter.IsActive,
 	}
 
@@ -20,7 +20,6 @@ func (r *defaultRepository) ListGitRepositories(filter challengemodels.GitReposi
 	if vErr != nil {
 		return nil, 0, vErr
 	}
-
 
 	ms := grmodels.ParseGitRepositoriesFromDaos(daos)
 

@@ -5,7 +5,7 @@ import (
 )
 
 type GitRepositoryScanResultFilterData struct {
-	Id           *string              `json:"id"`
-	RepositoryId *string              `json:"repository_id"`
+	Id           *string             `json:"id"`
+	RepositoryId *string             `json:"repository_id"`
 	Status       *grenums.ScanStatus `json:"status"`
 }

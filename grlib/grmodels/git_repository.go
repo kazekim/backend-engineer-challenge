@@ -1,7 +1,7 @@
 package grmodels
 
 import (
-	grcgitrepositorydbdaos "github.com/kazekim/backend-engineer-challenge/grlib/db/gitrepository/v1/daos"
+	grgitrepositorydbdaos "github.com/kazekim/backend-engineer-challenge/grlib/db/gitrepository/v1/daos"
 	"time"
 )
 
@@ -14,7 +14,7 @@ type GitRepository struct {
 	IsActive  bool      `json:"is_active"`
 }
 
-func ParseGitRepositoryFromDao(dao *grcgitrepositorydbdaos.GitRepository) *GitRepository {
+func ParseGitRepositoryFromDao(dao *grgitrepositorydbdaos.GitRepository) *GitRepository {
 	return &GitRepository{
 		Id:        dao.Id,
 		CreatedAt: dao.CreatedAt.Time,
@@ -25,7 +25,7 @@ func ParseGitRepositoryFromDao(dao *grcgitrepositorydbdaos.GitRepository) *GitRe
 	}
 }
 
-func ParseGitRepositoriesFromDaos(daos *[]grcgitrepositorydbdaos.GitRepository) *[]GitRepository {
+func ParseGitRepositoriesFromDaos(daos *[]grgitrepositorydbdaos.GitRepository) *[]GitRepository {
 
 	var ms []GitRepository
 	for _, dao := range *daos {

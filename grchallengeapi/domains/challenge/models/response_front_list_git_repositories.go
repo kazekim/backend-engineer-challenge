@@ -6,6 +6,6 @@ import (
 
 type FrontListGitRepositoriesResponse struct {
 	Datas []grmodels.GitRepository `json:"datas"`
-	Page  int64                     `json:"page"`
-	Count int64                     `json:"count"`
+	Page  int64                    `json:"page"`
+	Count int64                    `json:"count"`
 }

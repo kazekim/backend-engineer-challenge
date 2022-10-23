@@ -5,7 +5,7 @@ import (
 )
 
 type FrontListGitRepositoryScanResultsResponse struct {
-	Datas []grmodels.GitRepositoryScanResult `json:"datas"`
-	Page  int64                              `json:"page"`
-	Count int64                              `json:"count"`
+	Datas []grmodels.GitRepositoryScanResultWithDetail `json:"datas"`
+	Page  int64                                        `json:"page"`
+	Count int64                                        `json:"count"`
 }

@@ -2,16 +2,16 @@ package grcgitrepositorydb
 
 import (
 	"database/sql"
-	grcenums "github.com/kazekim/backend-engineer-challenge/grchallengeapi/enums"
-	grcgitrepositorydbdaos "github.com/kazekim/backend-engineer-challenge/grchallengeapi/pkgs/db/gitrepository/v1/daos"
 	"github.com/kazekim/backend-engineer-challenge/grlib/bejson"
 	"github.com/kazekim/backend-engineer-challenge/grlib/besqlx"
+	grcgitrepositorydbdaos "github.com/kazekim/backend-engineer-challenge/grlib/db/gitrepository/v1/daos"
+	"github.com/kazekim/backend-engineer-challenge/grlib/grenums"
 	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 	"time"
 )
 
 type UpdateGitRepositoryScanResultDB interface {
-	Status(value grcenums.ScanStatus) UpdateGitRepositoryScanResultDB
+	Status(value grenums.ScanStatus) UpdateGitRepositoryScanResultDB
 	Findings(value interface{}) UpdateGitRepositoryScanResultDB
 	QueuedAt(value time.Time) UpdateGitRepositoryScanResultDB
 	ScanningAt(value time.Time) UpdateGitRepositoryScanResultDB
@@ -48,7 +48,7 @@ func (u *defaultUpdateGitRepositoryScanResultDB) Commit() grerrors.Error {
 }
 
 //Status set parameter to update status field
-func (u *defaultUpdateGitRepositoryScanResultDB) Status(value grcenums.ScanStatus) UpdateGitRepositoryScanResultDB {
+func (u *defaultUpdateGitRepositoryScanResultDB) Status(value grenums.ScanStatus) UpdateGitRepositoryScanResultDB {
 	u.helper.SetParam("status", value)
 	return u
 }

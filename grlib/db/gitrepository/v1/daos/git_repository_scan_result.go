@@ -2,15 +2,15 @@ package grcgitrepositorydbdaos
 
 import (
 	"database/sql"
-	grcenums "github.com/kazekim/backend-engineer-challenge/grchallengeapi/enums"
 	"github.com/kazekim/backend-engineer-challenge/grlib/bejson"
 	"github.com/kazekim/backend-engineer-challenge/grlib/besqlx"
+	"github.com/kazekim/backend-engineer-challenge/grlib/grenums"
 )
 
 type GitRepositoryScanResult struct {
 	besqlx.IDModel
 	RepositoryId string              `db:"repository_id"`
-	Status       grcenums.ScanStatus `db:"status"`
+	Status       grenums.ScanStatus `db:"status"`
 	Findings     bejson.JSON         `db:"findings"`
 	QueuedAt     sql.NullTime        `db:"queued_at"`
 	ScanningAt   sql.NullTime        `db:"scanning_at"`

@@ -2,7 +2,7 @@ package grcgitrepositorydb
 
 import (
 	"fmt"
-	grcgitrepositorydbdaos "github.com/kazekim/backend-engineer-challenge/grchallengeapi/pkgs/db/gitrepository/v1/daos"
+	grcgitrepositorydbdaos "github.com/kazekim/backend-engineer-challenge/grlib/db/gitrepository/v1/daos"
 	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 )
 

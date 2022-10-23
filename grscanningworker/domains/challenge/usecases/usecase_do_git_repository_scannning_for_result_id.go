@@ -8,6 +8,9 @@ import (
 	"time"
 )
 
+//DoGitRepositoryScanningForResultId do scan process when receive queue from kafka
+//this action will check if status is on queued. If yes, continue the process. If No, it will cancel the process
+//When scanning done, it will update the scan result again whether it success or failure
 func (u *defaultUseCase) DoGitRepositoryScanningForResultId(resultId string) grerrors.Error {
 
 	gr, vErr := u.cr.GetGitRepositoryScanResultById(resultId)
@@ -21,13 +24,13 @@ func (u *defaultUseCase) DoGitRepositoryScanningForResultId(resultId string) gre
 
 	settings := &grgitscanner.GitSettings{
 		Name: gr.RepositoryName,
-		Url: gr.RepositoryUrl,
+		Url:  gr.RepositoryUrl,
 	}
 
 	status := grenums.ScanStatusInProgress
 	t := time.Now()
 	uData := challengemodels.UpdateGitRepositoryScanResultData{
-		Status: &status,
+		Status:     &status,
 		ScanningAt: &t,
 	}
 	vErr = u.cr.UpdateGitRepositoryScanResultById(resultId, uData)
@@ -39,8 +42,8 @@ func (u *defaultUseCase) DoGitRepositoryScanningForResultId(resultId string) gre
 	t = time.Now()
 	uData.FinishedAt = &t
 	if vErr != nil {
-		status =  grenums.ScanStatusFailure
-	}else{
+		status = grenums.ScanStatusFailure
+	} else {
 		status = grenums.ScanStatusSuccess
 		uData.Findings = srs
 	}

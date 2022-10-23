@@ -7,8 +7,8 @@ import (
 )
 
 type UpdateGitRepositoryScanResultData struct {
-	Status       *grenums.ScanStatus `form:"status"`
-	Findings     *grgitscanner.GitScanningResult       `form:"findings"`
-	ScanningAt   *time.Time       `form:"scanning_at"`
-	FinishedAt   *time.Time      `form:"finished_at"`
+	Status     *grenums.ScanStatus             `form:"status"`
+	Findings   *grgitscanner.GitScanningResult `form:"findings"`
+	ScanningAt *time.Time                      `form:"scanning_at"`
+	FinishedAt *time.Time                      `form:"finished_at"`
 }

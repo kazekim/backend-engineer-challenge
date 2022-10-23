@@ -38,7 +38,7 @@ func main() {
 		Environment:           &cfg,
 		FileClient:            fc,
 		GitRepositoryDBClient: grdbc,
-		GitScannerMQClient: grmqc,
+		GitScannerMQClient:    grmqc,
 	}
 
 	// -----------

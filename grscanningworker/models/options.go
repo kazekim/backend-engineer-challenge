@@ -12,7 +12,7 @@ import (
 type Options struct {
 	Environment           *grwenv.Environment
 	FileClient            befiles.Client
-	GitScannerClient grgitscanner.Client
+	GitScannerClient      grgitscanner.Client
 	GitRepositoryDBClient grgitrepositorydb.Client
-	GitScannerMQClient  grscankafka.Client
+	GitScannerMQClient    grscankafka.Client
 }

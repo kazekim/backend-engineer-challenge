@@ -7,8 +7,8 @@ import (
 )
 
 type defaultUseCase struct {
-	cfg *grcenv.Environment
-	cr  challengerepositories.Repository
+	cfg   *grcenv.Environment
+	cr    challengerepositories.Repository
 	grmqc grscankafka.Client
 }
 
@@ -16,8 +16,8 @@ type defaultUseCase struct {
 func NewUseCase(cfg *grcenv.Environment, cr challengerepositories.Repository, grmqc grscankafka.Client) UseCase {
 
 	return &defaultUseCase{
-		cfg: cfg,
-		cr:  cr,
+		cfg:   cfg,
+		cr:    cr,
 		grmqc: grmqc,
 	}
 }

@@ -12,5 +12,5 @@ type Options struct {
 	Environment           *grcenv.Environment
 	FileClient            befiles.Client
 	GitRepositoryDBClient grgitrepositorydb.Client
-	GitScannerMQClient  grscankafka.Client
+	GitScannerMQClient    grscankafka.Client
 }

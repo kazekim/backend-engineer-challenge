@@ -15,7 +15,7 @@ func (u *defaultUseCase) StartGitRepositoryScanning(id string) (*grmodels.GitRep
 	}
 
 	data := grscankafka.PublishStartGitRepositoryScanningMessageParams{
-		ResultId: m.Id,
+		ResultId:        m.Id,
 		GitRepositoryId: m.RepositoryId,
 	}
 	vErr = u.grmqc.PublishStartGitRepositoryScanningMessage(u.cfg.GitScannerMQConfig.ServerId, data)

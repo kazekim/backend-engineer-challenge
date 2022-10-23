@@ -7,4 +7,5 @@ type Handler interface {
 	FrontCreateGitRepository(c *begincontext.Context)
 	FrontDeleteGitRepositoryById(c *begincontext.Context)
 	FrontGetGitRepositoryById(c *begincontext.Context)
+	FrontListGitRepositories(c *begincontext.Context)
 }

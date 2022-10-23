@@ -6,20 +6,22 @@ import (
 	begincontext "github.com/kazekim/backend-engineer-challenge/grlib/begin/context"
 )
 
-//FrontGetGitRepositoryById get git repository by id handler
-func (h *defaultHandler) FrontGetGitRepositoryById(c *begincontext.Context) {
+//FrontListGitRepositories list git repositories handler
+func (h *defaultHandler) FrontListGitRepositories(c *begincontext.Context) {
 
-	var req challengemodels.FrontGetGitRepositoryByIdRequest
+	var req challengemodels.FrontListGitRepositoriesByIdRequest
 	vErr := c.BindJSONAndValidate(&req)
 	if vErr != nil {
 		c.CreateResponseError(vErr)
 		return
 	}
 
-	m := &grcmodels.GitRepository{}
+	m := &[]grcmodels.GitRepository{}
 
-	resp := challengemodels.FrontGetGitRepositoryByIdResponse{
-		Data: *m,
+	resp := challengemodels.FrontListGitRepositoriesResponse{
+		Datas: *m,
+		Page: 1,
+		Count: 2,
 	}
 
 	c.CreateResponseSuccess(resp)

@@ -8,11 +8,13 @@ import (
 
 type defaultRepository struct {
 	cfg *grcenv.Environment
+	grc grgitrepositorydb.Client
 }
 
 // NewRepository new challenge repository
 func NewRepository(cfg *grcenv.Environment, grc grgitrepositorydb.Client) (Repository, grerrors.Error) {
 	return &defaultRepository{
 		cfg: cfg,
+		grc: grc,
 	}, nil
 }

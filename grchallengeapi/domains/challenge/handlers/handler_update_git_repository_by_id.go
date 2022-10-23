@@ -15,6 +15,12 @@ func (h *defaultHandler) FrontUpdateGitRepositoryById(c *begincontext.Context) {
 		return
 	}
 
+	vErr = h.cu.UpdateGitRepositoryById(req.RepositoryId, req.UpdateGitRepositoryData)
+	if vErr != nil {
+		c.CreateResponseError(vErr)
+		return
+	}
+	
 	resp := challengemodels.FrontUpdateGitRepositoryByIdResponse{
 		IsSuccess: true,
 	}

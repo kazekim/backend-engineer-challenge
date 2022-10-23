@@ -8,4 +8,5 @@ import (
 
 type UseCase interface {
 	CreateGitRepository(data challengemodels.CreateGitRepositoryData) (*grmodels.GitRepository, grerrors.Error)
+	DeleteGitRepositoryById(id string) grerrors.Error
 }

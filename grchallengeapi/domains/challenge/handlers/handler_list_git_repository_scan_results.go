@@ -6,22 +6,24 @@ import (
 	begincontext "github.com/kazekim/backend-engineer-challenge/grlib/begin/context"
 )
 
-//FrontListGitRepositories list git repositories handler
-func (h *defaultHandler) FrontListGitRepositories(c *begincontext.Context) {
+//FrontListGitRepositoryScanResults list git repository scan results handler
+func (h *defaultHandler) FrontListGitRepositoryScanResults(c *begincontext.Context) {
 
-	var req challengemodels.FrontListGitRepositoriesRequest
+	var req challengemodels.FrontListGitRepositoryScanResultsRequest
 	vErr := c.BindJSONAndValidate(&req)
 	if vErr != nil {
 		c.CreateResponseError(vErr)
 		return
 	}
 
-	m := &[]grcmodels.GitRepository{}
+	m := &[]grcmodels.GitRepositoryScanResult{}
+	page := int64(1)
+	count := int64(2)
 
-	resp := challengemodels.FrontListGitRepositoriesResponse{
+	resp := challengemodels.FrontListGitRepositoryScanResultsResponse{
 		Datas: *m,
-		Page: 1,
-		Count: 2,
+		Page: page,
+		Count: count,
 	}
 
 	c.CreateResponseSuccess(resp)

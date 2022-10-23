@@ -14,6 +14,7 @@ type UpdateHelper struct {
 
 //NewUpdateHelper init code helper to make update database query code more clean
 func (c defaultClient) NewUpdateHelper() *UpdateHelper {
+
 	return &UpdateHelper{
 		params:      make(map[string]interface{}),
 		whereParams: make(map[string]interface{}),
@@ -32,7 +33,12 @@ func (h *UpdateHelper) SetParam(key string, value interface{}) {
 }
 
 //CommitUpdateQuery do update query
-func (h *UpdateHelper) CommitUpdateQuery(tableName string) grerrors.Error {
+func (h *UpdateHelper) CommitUpdateQuery(model interface{}) grerrors.Error {
+
+	tableName, vErr := parseTableName(model)
+	if vErr != nil {
+		return vErr
+	}
 
 	var args []interface{}
 

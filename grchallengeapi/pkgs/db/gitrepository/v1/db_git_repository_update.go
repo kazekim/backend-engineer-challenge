@@ -33,8 +33,7 @@ func NewUpdateGitRepositoryDBById(db besqlx.Client, id string) UpdateGitReposito
 func (u *defaultUpdateGitRepositoryDB) Commit() grerrors.Error {
 
 	var m grcgitrepositorydbdaos.GitRepository
-
-	vErr := u.helper.CommitUpdateQuery(m.TableName())
+	vErr := u.helper.CommitUpdateQuery(&m)
 	if vErr != nil {
 		return vErr
 	}

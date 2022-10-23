@@ -15,6 +15,12 @@ func (h *defaultHandler) FrontDeleteGitRepositoryById(c *begincontext.Context) {
 		return
 	}
 
+	vErr = h.cu.DeleteGitRepositoryById(req.RepositoryId)
+	if vErr != nil {
+		c.CreateResponseError(vErr)
+		return
+	}
+
 	resp := challengemodels.FrontDeleteGitRepositoryByIdResponse{
 		IsSuccess: true,
 	}

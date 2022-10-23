@@ -31,17 +31,7 @@ func (c *defaultClient) ListGitRepositories(filter grcgitrepositorydbdaos.GitRep
 		Args:         args,
 	}
 
-	count, vErr := c.db.Count(&dao, whereQuery, args)
-	if vErr != nil {
-		return nil, 0, vErr
-	}
-
-	if len(values) == 2 {
-		sb.Page = &values[0]
-		sb.Limit = &values[1]
-	}
-
-	vErr = c.db.Select(&dao, &daos, sb)
+	count, vErr := c.db.SelectWithCount(&dao, &daos, sb)
 	if vErr != nil {
 		return nil, 0, vErr
 	}

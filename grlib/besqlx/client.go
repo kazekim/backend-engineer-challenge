@@ -19,6 +19,7 @@ type Client interface {
 	Get(dest interface{}, query string, args ...interface{}) grerrors.Error
 	Select(model interface{}, dest interface{}, qb SelectQueryBuilder) grerrors.Error
 	Count(model interface{}, whereQuery string, args []interface{}) (int64, grerrors.Error)
+	SelectWithCount(model interface{}, dest interface{}, qb SelectQueryBuilder, values ...int64) (int64, grerrors.Error)
 }
 
 type defaultClient struct {

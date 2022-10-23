@@ -80,3 +80,23 @@ func (c *defaultClient) Count(model interface{}, whereQuery string, args []inter
 
 	return count, nil
 }
+
+func (c *defaultClient) SelectWithCount(model interface{}, dest interface{}, qb SelectQueryBuilder, values ...int64) (int64, grerrors.Error) {
+
+	count, vErr := c.Count(model, qb.WhereQuery, qb.Args)
+	if vErr != nil {
+		return 0, vErr
+	}
+
+	if len(values) == 2 {
+		qb.Page = &values[0]
+		qb.Limit = &values[1]
+	}
+
+	vErr = c.Select(model, dest, qb)
+	if vErr != nil {
+		return 0, vErr
+	}
+
+	return count, nil
+}

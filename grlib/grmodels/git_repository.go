@@ -24,3 +24,13 @@ func ParseGitRepositoryFromDao(dao *grcgitrepositorydbdaos.GitRepository) *GitRe
 		IsActive:  dao.IsActive,
 	}
 }
+
+func ParseGitRepositoriesFromDaos(daos *[]grcgitrepositorydbdaos.GitRepository) *[]GitRepository {
+
+	var ms []GitRepository
+	for _, dao := range *daos {
+		m := ParseGitRepositoryFromDao(&dao)
+		ms = append(ms, *m)
+	}
+	return &ms
+}

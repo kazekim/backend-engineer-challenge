@@ -7,6 +7,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grmodels"
 )
 
+//CreateGitRepository parse input from api to params and create git repository with db client
 func (r *defaultRepository) CreateGitRepository(data challengemodels.CreateGitRepositoryData) (*grmodels.GitRepository, grerrors.Error) {
 
 	params := grgitrepositorydbdaos.GitRepository{

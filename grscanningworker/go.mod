@@ -1,4 +1,4 @@
-module github.com/kazekim/backend-engineer-challenge/grchallengeapi
+module github.com/kazekim/backend-engineer-challenge/grscanningworker
 
 go 1.16
 

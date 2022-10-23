@@ -5,5 +5,5 @@ import (
 )
 
 type FrontGetGitRepositoryScanResultByIdResponse struct {
-	Data grmodels.GitRepositoryScanResult `json:"data"`
+	grmodels.GitRepositoryScanResultWithDetail
 }

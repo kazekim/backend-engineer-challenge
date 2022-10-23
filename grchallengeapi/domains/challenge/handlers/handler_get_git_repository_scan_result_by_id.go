@@ -22,7 +22,7 @@ func (h *defaultHandler) FrontGetGitRepositoryScanResultById(c *begincontext.Con
 	}
 
 	resp := challengemodels.FrontGetGitRepositoryScanResultByIdResponse{
-		Data: *m,
+		GitRepositoryScanResultWithDetail: *m,
 	}
 
 	c.CreateResponseSuccess(resp)

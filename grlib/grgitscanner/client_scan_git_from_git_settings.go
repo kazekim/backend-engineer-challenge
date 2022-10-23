@@ -5,7 +5,7 @@ import (
 )
 
 //ScanGitFromGitSettings scan git with scanners from the GitSettings
-func (c *defaultClient) ScanGitFromGitSettings(gs *GitSettings) (*[]GitScanningResult, grerrors.Error) {
+func (c *defaultClient) ScanGitFromGitSettings(gs *GitSettings) (*GitScanningResult, grerrors.Error) {
 
 	g := c.gc.InitGitWithSettings(gs.Name, gs.Url)
 	defer func() {
@@ -27,17 +27,17 @@ func (c *defaultClient) ScanGitFromGitSettings(gs *GitSettings) (*[]GitScanningR
 		return nil, vErr
 	}
 
-	var srs []GitScanningResult
+	var sr GitScanningResult
 	for _, f := range *files {
 		vErr = g.ScanFileByLine(f, func(data string, line int64) grerrors.Error {
 
 			for _, scanner := range *scanners {
 				input := NewScannerInput(data, f, line)
-				gsrs, vErr := scanner.DoScanForInput(input)
+				findings, vErr := scanner.DoScanForInput(input)
 				if vErr != nil {
 					return vErr
 				}
-				srs = append(srs, (*gsrs)...)
+				sr.Findings = append(sr.Findings, (*findings)...)
 			}
 
 			return nil
@@ -47,5 +47,5 @@ func (c *defaultClient) ScanGitFromGitSettings(gs *GitSettings) (*[]GitScanningR
 		}
 	}
 
-	return &srs, nil
+	return &sr, nil
 }

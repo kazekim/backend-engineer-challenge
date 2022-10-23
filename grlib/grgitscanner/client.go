@@ -11,7 +11,7 @@ const (
 )
 
 type Client interface {
-	ScanGitFromGitSettings(gs *GitSettings) (*[]GitScanningResult, grerrors.Error)
+	ScanGitFromGitSettings(gs *GitSettings) (*GitScanningResult, grerrors.Error)
 }
 
 type defaultClient struct {

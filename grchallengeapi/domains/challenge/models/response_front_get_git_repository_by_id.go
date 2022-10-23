@@ -5,5 +5,5 @@ import (
 )
 
 type FrontGetGitRepositoryByIdResponse struct {
-	Data grmodels.GitRepository `json:"data"`
+	grmodels.GitRepository
 }

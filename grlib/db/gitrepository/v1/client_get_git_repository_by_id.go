@@ -1,15 +1,15 @@
-package grcgitrepositorydb
+package grgitrepositorydb
 
 import (
 	"fmt"
-	grcgitrepositorydbdaos "github.com/kazekim/backend-engineer-challenge/grlib/db/gitrepository/v1/daos"
+	grgitrepositorydbdaos "github.com/kazekim/backend-engineer-challenge/grlib/db/gitrepository/v1/daos"
 	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 )
 
 //GetGitRepositoryById get git repository data by id
-func (c *defaultClient) GetGitRepositoryById(id string) (*grcgitrepositorydbdaos.GitRepository, grerrors.Error) {
+func (c *defaultClient) GetGitRepositoryById(id string) (*grgitrepositorydbdaos.GitRepository, grerrors.Error) {
 
-	var dao grcgitrepositorydbdaos.GitRepository
+	var dao grgitrepositorydbdaos.GitRepository
 	q := fmt.Sprintf(`select * from %v where id = $1`, dao.TableName())
 	err := c.db.Get(&dao, q, id)
 	if err != nil {

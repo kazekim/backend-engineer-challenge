@@ -1,16 +1,16 @@
-package grcgitrepositorydb
+package grgitrepositorydb
 
 import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/besqlx"
-	grcgitrepositorydbdaos "github.com/kazekim/backend-engineer-challenge/grlib/db/gitrepository/v1/daos"
+	grgitrepositorydbdaos "github.com/kazekim/backend-engineer-challenge/grlib/db/gitrepository/v1/daos"
 	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 )
 
 //ListGitRepositories list git repositories with filter
-func (c *defaultClient) ListGitRepositories(filter grcgitrepositorydbdaos.GitRepositoryFilter, values ...int64) (*[]grcgitrepositorydbdaos.GitRepository, int64, grerrors.Error) {
+func (c *defaultClient) ListGitRepositories(filter grgitrepositorydbdaos.GitRepositoryFilter, values ...int64) (*[]grgitrepositorydbdaos.GitRepository, int64, grerrors.Error) {
 
-	var daos []grcgitrepositorydbdaos.GitRepository
-	var dao grcgitrepositorydbdaos.GitRepository
+	var daos []grgitrepositorydbdaos.GitRepository
+	var dao grgitrepositorydbdaos.GitRepository
 	wqb := besqlx.NewWhereQueryBuilder()
 	if filter.Id != nil {
 		wqb.Where("id", *filter.Id, besqlx.WhereOperatorEqual)

@@ -1,16 +1,16 @@
-package grcgitrepositorydb
+package grgitrepositorydb
 
 import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/besqlx"
-	grcgitrepositorydbdaos "github.com/kazekim/backend-engineer-challenge/grlib/db/gitrepository/v1/daos"
+	grgitrepositorydbdaos "github.com/kazekim/backend-engineer-challenge/grlib/db/gitrepository/v1/daos"
 	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 )
 
 //ListGitRepositoryScanResults list git repository scan result with filter
-func (c *defaultClient) ListGitRepositoryScanResults(filter grcgitrepositorydbdaos.GitRepositoryScanResultFilter, values ...int64) (*[]grcgitrepositorydbdaos.GitRepositoryScanResultWithDetail, int64, grerrors.Error) {
+func (c *defaultClient) ListGitRepositoryScanResults(filter grgitrepositorydbdaos.GitRepositoryScanResultFilter, values ...int64) (*[]grgitrepositorydbdaos.GitRepositoryScanResultWithDetail, int64, grerrors.Error) {
 
-	var daos []grcgitrepositorydbdaos.GitRepositoryScanResultWithDetail
-	var dao grcgitrepositorydbdaos.GitRepositoryScanResultWithDetail
+	var daos []grgitrepositorydbdaos.GitRepositoryScanResultWithDetail
+	var dao grgitrepositorydbdaos.GitRepositoryScanResultWithDetail
 	wqb := besqlx.NewWhereQueryBuilder()
 	if filter.Id != nil {
 		wqb.Where("sr.id", *filter.Id, besqlx.WhereOperatorEqual)

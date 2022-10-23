@@ -1,4 +1,4 @@
-package grcgitrepositorydbdaos
+package grgitrepositorydbdaos
 
 import (
 	"database/sql"

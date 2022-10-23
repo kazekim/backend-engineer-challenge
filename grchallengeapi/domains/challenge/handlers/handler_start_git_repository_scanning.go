@@ -3,7 +3,6 @@ package challengehandlers
 import (
 	challengemodels "github.com/kazekim/backend-engineer-challenge/grchallengeapi/domains/challenge/models"
 	begincontext "github.com/kazekim/backend-engineer-challenge/grlib/begin/context"
-	"github.com/kazekim/backend-engineer-challenge/grlib/grmodels"
 )
 
 //FrontStartGitRepositoryScanning start git repository scanning handler
@@ -16,7 +15,11 @@ func (h *defaultHandler) FrontStartGitRepositoryScanning(c *begincontext.Context
 		return
 	}
 
-	m := &grmodels.GitRepositoryScanResult{}
+	m, vErr := h.cu.StartGitRepositoryScanning(req.RepositoryId)
+	if vErr != nil {
+		c.CreateResponseError(vErr)
+		return
+	}
 
 	resp := challengemodels.FrontStartGitRepositoryScanningResponse{
 		Data: *m,

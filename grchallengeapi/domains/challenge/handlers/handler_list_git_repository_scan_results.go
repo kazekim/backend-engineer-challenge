@@ -16,6 +16,10 @@ func (h *defaultHandler) FrontListGitRepositoryScanResults(c *begincontext.Conte
 	}
 
 	ms, count, vErr := h.cu.ListGitRepositoryScanResults(req.GitRepositoryScanResultFilterData, req.Page, req.Limit)
+	if vErr != nil {
+		c.CreateResponseError(vErr)
+		return
+	}
 
 	page := req.Page
 	if req.Page == 0 {

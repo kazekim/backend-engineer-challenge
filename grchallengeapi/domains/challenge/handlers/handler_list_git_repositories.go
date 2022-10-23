@@ -16,6 +16,10 @@ func (h *defaultHandler) FrontListGitRepositories(c *begincontext.Context) {
 	}
 
 	ms, count, vErr := h.cu.ListGitRepositories(req.GitRepositoryFilterData, req.Page, req.Limit)
+	if vErr != nil {
+		c.CreateResponseError(vErr)
+		return
+	}
 
 	page := req.Page
 	if req.Page == 0 {

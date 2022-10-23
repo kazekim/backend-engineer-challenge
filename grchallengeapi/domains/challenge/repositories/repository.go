@@ -15,6 +15,6 @@ type Repository interface {
 
 	StartGitRepositoryScanning(id string) (*grmodels.GitRepositoryScanResult, grerrors.Error)
 	DeleteGitRepositoryScanResultById(id string) grerrors.Error
-	GetGitRepositoryScanResultById(id string) (*grmodels.GitRepositoryScanResult, grerrors.Error)
+	GetGitRepositoryScanResultById(id string) (*grmodels.GitRepositoryScanResultWithDetail, grerrors.Error)
 	ListGitRepositoryScanResults(filter challengemodels.GitRepositoryScanResultFilterData, values ...int64) (*[]grmodels.GitRepositoryScanResultWithDetail, int64, grerrors.Error)
 }

@@ -12,7 +12,7 @@ func (r *defaultRouter) initHandlers() {
 	cr, _ := challengerepositories.NewRepository(r.options.Environment, r.options.GitRepositoryDBClient)
 
 	//UseCases
-	cu := challengeusecases.NewUseCase(r.options.Environment, cr)
+	cu := challengeusecases.NewUseCase(r.options.Environment, cr, r.options.GitScannerMQClient)
 
 	//Handlers
 	ch := challengehandlers.NewHandler(r.options.Environment, cu)

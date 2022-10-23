@@ -16,4 +16,6 @@ const (
 	ErrCodeDatabaseError                ErrorCode = 1011
 	ErrCodeNoWhereClauseInDatabaseQuery ErrorCode = 1012
 	ErrCodeGitHasNotBeenLoadedYet       ErrorCode = 1013
+	ErrCodeKafkaProducerFailed          ErrorCode = 1014
+	ErrCodeKafkaConsumerFailed          ErrorCode = 1015
 )

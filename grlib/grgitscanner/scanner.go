@@ -3,7 +3,7 @@ package grgitscanner
 import "github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 
 type Scanner interface {
-	DoScanForInput(input ScannerInput) (*[]GitScanningResult, grerrors.Error)
+	DoScanForInput(input ScannerInput) (*[]Finding, grerrors.Error)
 }
 
 type defaultScanner struct {

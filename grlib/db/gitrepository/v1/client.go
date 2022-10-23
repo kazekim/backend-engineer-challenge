@@ -14,7 +14,7 @@ type Client interface {
 
 	CreateGitRepositoryScanResult(params *grgitrepositorydbdaos.GitRepositoryScanResult) (*grgitrepositorydbdaos.GitRepositoryScanResult, grerrors.Error)
 	DeleteGitRepositoryScanResultById(id string) grerrors.Error
-	GetGitRepositoryScanResultById(id string) (*grgitrepositorydbdaos.GitRepositoryScanResult, grerrors.Error)
+	GetGitRepositoryScanResultById(id string) (*grgitrepositorydbdaos.GitRepositoryScanResultWithDetail, grerrors.Error)
 	ListGitRepositoryScanResults(filter grgitrepositorydbdaos.GitRepositoryScanResultFilter, values ...int64) (*[]grgitrepositorydbdaos.GitRepositoryScanResultWithDetail, int64, grerrors.Error)
 	UpdateGitRepositoryScanResultById(id string) UpdateGitRepositoryScanResultDB
 }

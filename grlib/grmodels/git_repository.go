@@ -1,4 +1,4 @@
-package grcmodels
+package grmodels
 
 import (
 	grcgitrepositorydbdaos "github.com/kazekim/backend-engineer-challenge/grlib/db/gitrepository/v1/daos"

@@ -2,12 +2,12 @@ package challengerepositories
 
 import (
 	challengemodels "github.com/kazekim/backend-engineer-challenge/grchallengeapi/domains/challenge/models"
-	grcmodels "github.com/kazekim/backend-engineer-challenge/grchallengeapi/models"
 	grgitrepositorydbdaos "github.com/kazekim/backend-engineer-challenge/grlib/db/gitrepository/v1/daos"
 	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
+	"github.com/kazekim/backend-engineer-challenge/grlib/grmodels"
 )
 
-func (r *defaultRepository) CreateGitRepository(data challengemodels.CreateGitRepositoryData) (*grcmodels.GitRepository, grerrors.Error) {
+func (r *defaultRepository) CreateGitRepository(data challengemodels.CreateGitRepositoryData) (*grmodels.GitRepository, grerrors.Error) {
 
 	params := grgitrepositorydbdaos.GitRepository{
 		Name: data.Name,
@@ -20,7 +20,7 @@ func (r *defaultRepository) CreateGitRepository(data challengemodels.CreateGitRe
 		return nil, vErr
 	}
 
-	m := grcmodels.ParseGitRepositoryFromDao(dao)
+	m := grmodels.ParseGitRepositoryFromDao(dao)
 
 	return m, nil
 }

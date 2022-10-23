@@ -1,7 +1,9 @@
 package challengemodels
 
-import grcmodels "github.com/kazekim/backend-engineer-challenge/grchallengeapi/models"
+import (
+	"github.com/kazekim/backend-engineer-challenge/grlib/grmodels"
+)
 
 type FrontGetGitRepositoryScanResultByIdResponse struct {
-	Data grcmodels.GitRepositoryScanResult `json:"data"`
+	Data grmodels.GitRepositoryScanResult `json:"data"`
 }

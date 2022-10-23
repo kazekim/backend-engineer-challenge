@@ -1,4 +1,4 @@
-package grcmodels
+package grmodels
 
 import (
 	"database/sql"

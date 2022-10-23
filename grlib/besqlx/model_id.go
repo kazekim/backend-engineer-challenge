@@ -7,7 +7,7 @@ import (
 )
 
 type IDModel struct {
-	ID        string       `db:"id"`
+	Id        string       `db:"id"`
 	CreatedAt sql.NullTime `db:"created_at"`
 	UpdatedAt sql.NullTime `db:"updated_at"`
 	DeletedAt sql.NullTime `db:"deleted_at"`
@@ -15,9 +15,9 @@ type IDModel struct {
 
 func (u *IDModel) BeforeCreate() (err error) {
 
-	if u.ID == "" {
+	if u.Id == "" {
 		id := xid.New().String()
-		u.ID = id
+		u.Id = id
 	}
 
 	t := time.Now()

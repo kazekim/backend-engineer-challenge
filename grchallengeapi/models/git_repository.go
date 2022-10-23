@@ -16,7 +16,7 @@ type GitRepository struct {
 
 func ParseGitRepositoryFromDao(dao *grcgitrepositorydbdaos.GitRepository) *GitRepository {
 	return &GitRepository{
-		Id: dao.ID,
+		Id: dao.Id,
 		CreatedAt: dao.CreatedAt.Time,
 		UpdatedAt: dao.UpdatedAt.Time,
 		Name: dao.Name,

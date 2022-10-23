@@ -5,10 +5,10 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 )
 
-//DeleteGitRepositoryById delete git repository row by id
-func (c *defaultClient) DeleteGitRepositoryById(id string) grerrors.Error {
+//DeleteGitRepositoryScanResultById delete git repository scan result row by id
+func (c *defaultClient) DeleteGitRepositoryScanResultById(id string) grerrors.Error {
 
-	var dao grcgitrepositorydbdaos.GitRepository
+	var dao grcgitrepositorydbdaos.GitRepositoryScanResult
 	wq := "id = $1"
 	vErr := c.db.DeleteExec(&dao, wq, id)
 	if vErr != nil {

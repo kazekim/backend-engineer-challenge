@@ -28,7 +28,12 @@ func (c *defaultClient) NamedExec(paramQuery, valueQuery string, arg interface{}
 		return nil, grerrors.NewDatabaseError(err)
 	}
 
-
+	if obj, ok := arg.(interface{AfterCreate() (err error)}); ok {
+		err := obj.AfterCreate()
+		if err != nil {
+			return nil, grerrors.NewDatabaseError(err)
+		}
+	}
 
 	return result, nil
 }

@@ -15,7 +15,7 @@ type UpdateGitRepositoryDB interface {
 }
 
 type defaultUpdateGitRepositoryDB struct {
-	helper 		  *besqlx.UpdateHelper
+	helper *besqlx.UpdateHelper
 }
 
 //NewUpdateGitRepositoryDBById create git repository update db helper

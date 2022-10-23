@@ -12,5 +12,5 @@ type GitRepository struct {
 }
 
 func (pf GitRepository) TableName() string {
-	return "gr_git_repository"
+	return "gr_git_repositories"
 }

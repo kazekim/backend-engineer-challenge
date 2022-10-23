@@ -25,10 +25,10 @@ func (c *defaultClient) ListGitRepositories(filter grcgitrepositorydbdaos.GitRep
 
 	orderByQuery := "created_at"
 	sb := besqlx.SelectQueryBuilder{
-		SelectQuery: "*",
-		WhereQuery: whereQuery,
+		SelectQuery:  "*",
+		WhereQuery:   whereQuery,
 		OrderByQuery: &orderByQuery,
-		Args: args,
+		Args:         args,
 	}
 
 	count, vErr := c.db.Count(&dao, whereQuery, args)

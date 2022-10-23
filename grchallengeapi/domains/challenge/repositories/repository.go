@@ -8,4 +8,5 @@ import (
 
 type Repository interface {
 	CreateGitRepository(data challengemodels.CreateGitRepositoryData) (*grcmodels.GitRepository, grerrors.Error)
+	DeleteGitRepositoryById(id string) grerrors.Error
 }

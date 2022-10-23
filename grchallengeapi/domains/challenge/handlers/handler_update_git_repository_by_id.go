@@ -9,7 +9,7 @@ import (
 func (h *defaultHandler) FrontUpdateGitRepositoryById(c *begincontext.Context) {
 
 	var req challengemodels.FrontUpdateGitRepositoryByIdRequest
-	vErr := c.BindJSONAndValidate(&req)
+	vErr := c.BindAndValidate(&req)
 	if vErr != nil {
 		c.CreateResponseError(vErr)
 		return
@@ -20,7 +20,7 @@ func (h *defaultHandler) FrontUpdateGitRepositoryById(c *begincontext.Context) {
 		c.CreateResponseError(vErr)
 		return
 	}
-	
+
 	resp := challengemodels.FrontUpdateGitRepositoryByIdResponse{
 		IsSuccess: true,
 	}

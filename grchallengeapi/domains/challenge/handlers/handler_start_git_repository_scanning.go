@@ -9,7 +9,7 @@ import (
 func (h *defaultHandler) FrontStartGitRepositoryScanning(c *begincontext.Context) {
 
 	var req challengemodels.FrontStartGitRepositoryScanningRequest
-	vErr := c.BindJSONAndValidate(&req)
+	vErr := c.BindAndValidate(&req)
 	if vErr != nil {
 		c.CreateResponseError(vErr)
 		return
@@ -22,7 +22,7 @@ func (h *defaultHandler) FrontStartGitRepositoryScanning(c *begincontext.Context
 	}
 
 	resp := challengemodels.FrontStartGitRepositoryScanningResponse{
-		Data: *m,
+		GitRepositoryScanResult: *m,
 	}
 
 	c.CreateResponseSuccess(resp)

@@ -9,14 +9,13 @@ import (
 func (h *defaultHandler) FrontGetGitRepositoryScanResultById(c *begincontext.Context) {
 
 	var req challengemodels.FrontGetGitRepositoryScanResultByIdRequest
-	vErr := c.BindJSONAndValidate(&req)
+	vErr := c.BindAndValidate(&req)
 	if vErr != nil {
 		c.CreateResponseError(vErr)
 		return
 	}
 
 	m, vErr := h.cu.GetGitRepositoryScanResultById(req.ResultId)
-	vErr = c.BindJSONAndValidate(&req)
 	if vErr != nil {
 		c.CreateResponseError(vErr)
 		return

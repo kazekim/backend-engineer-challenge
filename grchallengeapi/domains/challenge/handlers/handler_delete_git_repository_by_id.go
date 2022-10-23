@@ -9,7 +9,7 @@ import (
 func (h *defaultHandler) FrontDeleteGitRepositoryById(c *begincontext.Context) {
 
 	var req challengemodels.FrontDeleteGitRepositoryByIdRequest
-	vErr := c.BindJSONAndValidate(&req)
+	vErr := c.BindAndValidate(&req)
 	if vErr != nil {
 		c.CreateResponseError(vErr)
 		return

@@ -13,4 +13,5 @@ type Handler interface {
 	FrontStartGitRepositoryScanning(c *begincontext.Context)
 	FrontGetGitRepositoryScanResultById(c *begincontext.Context)
 	FrontListGitRepositoryScanResults(c *begincontext.Context)
+	FrontListGitRepositoryScanResultsByRepositoryId(c *begincontext.Context)
 }

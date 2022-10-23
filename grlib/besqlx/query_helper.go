@@ -88,7 +88,7 @@ func (c *defaultClient) SelectWithCount(model interface{}, dest interface{}, qb 
 		return 0, vErr
 	}
 
-	if len(values) == 2 {
+	if len(values) == 2 && values[0] != 0 && values[1] != 0 {
 		qb.Page = &values[0]
 		qb.Limit = &values[1]
 	}

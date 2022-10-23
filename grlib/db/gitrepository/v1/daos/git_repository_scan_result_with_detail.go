@@ -9,8 +9,8 @@ import (
 
 type GitRepositoryScanResultWithDetail struct {
 	Id         string             `db:"id"`
-	CreatedAt  time.Time          `json:"created_at"`
-	UpdatedAt  time.Time          `json:"updated_at"`
+	CreatedAt  time.Time          `db:"created_at"`
+	UpdatedAt  time.Time          `db:"updated_at"`
 	Name       string             `db:"repository_name"`
 	Url        string             `db:"repository_url"`
 	Status     grenums.ScanStatus `db:"status"`

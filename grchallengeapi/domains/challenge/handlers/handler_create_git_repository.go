@@ -22,7 +22,7 @@ func (h *defaultHandler) FrontCreateGitRepository(c *begincontext.Context) {
 	}
 
 	resp := challengemodels.FrontCreateGitRepositoryResponse{
-		Data: *m,
+		GitRepository: *m,
 	}
 
 	c.CreateResponseSuccess(resp)

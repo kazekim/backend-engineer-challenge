@@ -5,15 +5,17 @@ import (
 	begincontext "github.com/kazekim/backend-engineer-challenge/grlib/begin/context"
 )
 
-//FrontListGitRepositoryScanResults list git repository scan results handler
-func (h *defaultHandler) FrontListGitRepositoryScanResults(c *begincontext.Context) {
+//FrontListGitRepositoryScanResultsByRepositoryId list git repository scan results by repository id handler
+func (h *defaultHandler) FrontListGitRepositoryScanResultsByRepositoryId(c *begincontext.Context) {
 
-	var req challengemodels.FrontListGitRepositoryScanResultsRequest
+	var req challengemodels.FrontListGitRepositoryScanResultsByRepositoryIdRequest
 	vErr := c.BindAndValidate(&req)
 	if vErr != nil {
 		c.CreateResponseError(vErr)
 		return
 	}
+
+	req.GitRepositoryScanResultFilterData.RepositoryId = &req.RepositoryId
 
 	ms, count, vErr := h.cu.ListGitRepositoryScanResults(req.GitRepositoryScanResultFilterData, req.Page, req.Limit)
 	if vErr != nil {

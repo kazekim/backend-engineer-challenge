@@ -1,7 +1,7 @@
 package challengemodels
 
 type UpdateGitRepositoryData struct {
-	Name     *string `json:"name" binding:"required"`
-	Url      *string `json:"url" binding:"required,url"`
-	IsActive *bool   `json:"is_active""`
+	Name     *string `form:"name"`
+	Url      *string `form:"url" binding:"url"`
+	IsActive *bool   `form:"is_active"`
 }

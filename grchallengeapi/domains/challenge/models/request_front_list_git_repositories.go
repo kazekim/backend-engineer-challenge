@@ -2,6 +2,6 @@ package challengemodels
 
 type FrontListGitRepositoriesRequest struct {
 	GitRepositoryFilterData
-	Page  int64 `json:"page"`
-	Limit int64 `json:"limit"`
+	Page  int64 `form:"page"`
+	Limit int64 `form:"limit"`
 }

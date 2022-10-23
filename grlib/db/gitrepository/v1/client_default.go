@@ -1,4 +1,4 @@
-package grcgitrepositorydb
+package grgitrepositorydb
 
 import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/besqlx"

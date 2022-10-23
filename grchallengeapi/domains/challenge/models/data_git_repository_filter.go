@@ -1,7 +1,7 @@
 package challengemodels
 
 type GitRepositoryFilterData struct {
-	Id       *string `json:"id"`
-	Name     *string `json:"name"`
-	IsActive *bool   `json:"is_active"`
+	Id       *string `form:"id"`
+	Name     *string `form:"name"`
+	IsActive *bool   `form:"is_active"`
 }

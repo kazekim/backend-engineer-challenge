@@ -1,4 +1,4 @@
-package grcgitrepositorydbdaos
+package grgitrepositorydbdaos
 
 import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grenums"

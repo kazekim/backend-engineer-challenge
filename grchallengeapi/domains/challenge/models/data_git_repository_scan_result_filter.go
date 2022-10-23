@@ -1,11 +1,11 @@
 package challengemodels
 
 import (
-	grcenums "github.com/kazekim/backend-engineer-challenge/grchallengeapi/enums"
+	"github.com/kazekim/backend-engineer-challenge/grlib/grenums"
 )
 
 type GitRepositoryScanResultFilterData struct {
-	Id           *string              `json:"id"`
-	RepositoryId *string              `json:"repository_id"`
-	Status       *grcenums.ScanStatus `json:"status"`
+	Id           *string             `form:"id"`
+	RepositoryId *string             `form:"repository_id"`
+	Status       *grenums.ScanStatus `form:"status"`
 }

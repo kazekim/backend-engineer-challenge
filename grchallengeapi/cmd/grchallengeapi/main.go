@@ -7,6 +7,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/beenv"
 	"github.com/kazekim/backend-engineer-challenge/grlib/befiles"
 	"github.com/kazekim/backend-engineer-challenge/grlib/besqlx"
+	grgitrepositorydb "github.com/kazekim/backend-engineer-challenge/grlib/db/gitrepository/v1"
 	"github.com/kazekim/backend-engineer-challenge/grlib/grgitscanner"
 )
 
@@ -31,10 +32,13 @@ func main() {
 		panic(err)
 	}
 
+	grdbc := grgitrepositorydb.NewClient(dbc)
+
 	options := &grcmodels.Options{
-		Environment:      &cfg,
-		FileClient:       fc,
-		GitScannerClient: gsc,
+		Environment:           &cfg,
+		FileClient:            fc,
+		GitScannerClient:      gsc,
+		GitRepositoryDBClient: grdbc,
 	}
 
 	// -----------

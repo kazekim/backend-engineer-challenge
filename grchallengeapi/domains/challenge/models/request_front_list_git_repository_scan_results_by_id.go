@@ -1,7 +1,8 @@
 package challengemodels
 
-type FrontListGitRepositoryScanResultsRequest struct {
+type FrontListGitRepositoryScanResultsByRepositoryIdRequest struct {
+	RepositoryId string `path:"repository_id"`
 	GitRepositoryScanResultFilterData
-	Page  int64 `json:"page"`
-	Limit int64 `json:"limit"`
+	Page  int64 `form:"page"`
+	Limit int64 `form:"limit"`
 }

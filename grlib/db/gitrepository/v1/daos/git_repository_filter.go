@@ -1,4 +1,4 @@
-package grcgitrepositorydbdaos
+package grgitrepositorydbdaos
 
 type GitRepositoryFilter struct {
 	Id       *string `db:"id"`

@@ -9,7 +9,13 @@ import (
 func (h *defaultHandler) FrontUpdateGitRepositoryById(c *begincontext.Context) {
 
 	var req challengemodels.FrontUpdateGitRepositoryByIdRequest
-	vErr := c.BindJSONAndValidate(&req)
+	vErr := c.BindAndValidate(&req)
+	if vErr != nil {
+		c.CreateResponseError(vErr)
+		return
+	}
+
+	vErr = h.cu.UpdateGitRepositoryById(req.RepositoryId, req.UpdateGitRepositoryData)
 	if vErr != nil {
 		c.CreateResponseError(vErr)
 		return

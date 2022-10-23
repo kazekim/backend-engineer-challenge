@@ -1,8 +1,8 @@
-package grcgitrepositorydb
+package grgitrepositorydb
 
 import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/besqlx"
-	grcgitrepositorydbdaos "github.com/kazekim/backend-engineer-challenge/grlib/db/gitrepository/v1/daos"
+	grgitrepositorydbdaos "github.com/kazekim/backend-engineer-challenge/grlib/db/gitrepository/v1/daos"
 	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 )
 
@@ -32,7 +32,7 @@ func NewUpdateGitRepositoryDBById(db besqlx.Client, id string) UpdateGitReposito
 //Commit do commit update git repository database data
 func (u *defaultUpdateGitRepositoryDB) Commit() grerrors.Error {
 
-	var m grcgitrepositorydbdaos.GitRepository
+	var m grgitrepositorydbdaos.GitRepository
 	vErr := u.helper.CommitUpdateQuery(&m)
 	if vErr != nil {
 		return vErr

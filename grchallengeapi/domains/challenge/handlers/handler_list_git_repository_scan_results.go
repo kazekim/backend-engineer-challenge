@@ -2,7 +2,6 @@ package challengehandlers
 
 import (
 	challengemodels "github.com/kazekim/backend-engineer-challenge/grchallengeapi/domains/challenge/models"
-	grcmodels "github.com/kazekim/backend-engineer-challenge/grchallengeapi/models"
 	begincontext "github.com/kazekim/backend-engineer-challenge/grlib/begin/context"
 )
 
@@ -10,18 +9,25 @@ import (
 func (h *defaultHandler) FrontListGitRepositoryScanResults(c *begincontext.Context) {
 
 	var req challengemodels.FrontListGitRepositoryScanResultsRequest
-	vErr := c.BindJSONAndValidate(&req)
+	vErr := c.BindAndValidate(&req)
 	if vErr != nil {
 		c.CreateResponseError(vErr)
 		return
 	}
 
-	m := &[]grcmodels.GitRepositoryScanResult{}
-	page := int64(1)
-	count := int64(2)
+	ms, count, vErr := h.cu.ListGitRepositoryScanResults(req.GitRepositoryScanResultFilterData, req.Page, req.Limit)
+	if vErr != nil {
+		c.CreateResponseError(vErr)
+		return
+	}
+
+	page := req.Page
+	if req.Page == 0 {
+		page = 1
+	}
 
 	resp := challengemodels.FrontListGitRepositoryScanResultsResponse{
-		Datas: *m,
+		Datas: *ms,
 		Page:  page,
 		Count: count,
 	}

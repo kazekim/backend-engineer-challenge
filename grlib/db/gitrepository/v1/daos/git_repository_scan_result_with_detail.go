@@ -1,13 +1,16 @@
-package grcgitrepositorydbdaos
+package grgitrepositorydbdaos
 
 import (
 	"database/sql"
 	"github.com/kazekim/backend-engineer-challenge/grlib/bejson"
 	"github.com/kazekim/backend-engineer-challenge/grlib/grenums"
+	"time"
 )
 
 type GitRepositoryScanResultWithDetail struct {
-	Id         *string            `db:"id"`
+	Id         string             `db:"id"`
+	CreatedAt  time.Time          `db:"created_at"`
+	UpdatedAt  time.Time          `db:"updated_at"`
 	Name       string             `db:"repository_name"`
 	Url        string             `db:"repository_url"`
 	Status     grenums.ScanStatus `db:"status"`

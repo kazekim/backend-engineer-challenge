@@ -9,7 +9,7 @@ import (
 func (r *defaultRouter) initHandlers() {
 
 	//Repositories
-	cr, _ := challengerepositories.NewRepository(r.options.Environment)
+	cr, _ := challengerepositories.NewRepository(r.options.Environment, r.options.GitRepositoryDBClient)
 
 	//UseCases
 	cu := challengeusecases.NewUseCase(r.options.Environment, cr)

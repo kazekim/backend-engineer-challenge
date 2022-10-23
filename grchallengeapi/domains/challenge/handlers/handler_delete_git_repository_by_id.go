@@ -5,20 +5,18 @@ import (
 	begincontext "github.com/kazekim/backend-engineer-challenge/grlib/begin/context"
 )
 
-//FrontCreateRepository create repository handler
-func (h *defaultHandler) FrontCreateRepository(c *begincontext.Context) {
+//FrontDeleteGitRepositoryById delete git repository by id handler
+func (h *defaultHandler) FrontDeleteGitRepositoryById(c *begincontext.Context) {
 
-	var req challengemodels.FrontCreateRepositoryRequest
+	var req challengemodels.FrontDeleteGitRepositoryByIdRequest
 	vErr := c.BindJSONAndValidate(&req)
 	if vErr != nil {
 		c.CreateResponseError(vErr)
 		return
 	}
 
-	id := "asdfg"
-
-	resp := challengemodels.FrontCreateRepositoryResponse{
-		RepositoryId: id,
+	resp := challengemodels.FrontDeleteGitRepositoryByIdResponse{
+		IsSuccess: true,
 	}
 
 	c.CreateResponseSuccess(resp)

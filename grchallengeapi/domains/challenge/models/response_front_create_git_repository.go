@@ -1,5 +1,5 @@
 package challengemodels
 
-type FrontCreateRepositoryResponse struct {
+type FrontCreateGitRepositoryResponse struct {
 	RepositoryId string `json:"repository_id"`
 }

@@ -2,7 +2,6 @@ package challengehandlers
 
 import (
 	challengemodels "github.com/kazekim/backend-engineer-challenge/grchallengeapi/domains/challenge/models"
-	grcmodels "github.com/kazekim/backend-engineer-challenge/grchallengeapi/models"
 	begincontext "github.com/kazekim/backend-engineer-challenge/grlib/begin/context"
 )
 
@@ -16,7 +15,12 @@ func (h *defaultHandler) FrontGetGitRepositoryScanResultById(c *begincontext.Con
 		return
 	}
 
-	m := &grcmodels.GitRepositoryScanResult{}
+	m, vErr := h.cu.GetGitRepositoryScanResultById(req.ResultId)
+	vErr = c.BindJSONAndValidate(&req)
+	if vErr != nil {
+		c.CreateResponseError(vErr)
+		return
+	}
 
 	resp := challengemodels.FrontGetGitRepositoryScanResultByIdResponse{
 		Data: *m,

@@ -20,7 +20,7 @@ func (h *defaultHandler) FrontGetGitRepositoryById(c *begincontext.Context) {
 		c.CreateResponseError(vErr)
 		return
 	}
-	
+
 	resp := challengemodels.FrontGetGitRepositoryByIdResponse{
 		Data: *m,
 	}

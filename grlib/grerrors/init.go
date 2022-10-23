@@ -19,13 +19,33 @@ func NewDefaultErrorWithMessage(message string) Error {
 }
 
 //NewBadInputError new error with bad input error code and specify error
-func NewBadInputError(err string) Error {
-	vErr := NewError(ErrCodeBadInput, fmt.Sprintf("%v: %v", ErrMessageBadInput, err))
-	return vErr
+func NewBadInputError(err error) Error {
+	return &defaultError{
+		CodeValue:    ErrCodeBadInput,
+		MessageValue: fmt.Sprintf("%v: %v", ErrMessageBadInput, err.Error()),
+	}
 }
 
 //NewBadInputErrorWithMessage new error with bad input error code and specify message
 func NewBadInputErrorWithMessage(message string) Error {
-	vErr := NewError(ErrCodeBadInput, fmt.Sprintf("%v: %v", ErrMessageBadInput, message))
-	return vErr
+	return &defaultError{
+		CodeValue:    ErrCodeBadInput,
+		MessageValue: fmt.Sprintf("%v: %v", ErrMessageBadInput, message),
+	}
+}
+
+//NewKafkaProducerError new error with kafka producer error code and specify message
+func NewKafkaProducerError(err error) Error {
+	return &defaultError{
+		CodeValue:    ErrCodeKafkaProducerFailed,
+		MessageValue: err.Error(),
+	}
+}
+
+//NewKafkaConsumerError new error with kafka consumer error code and specify message
+func NewKafkaConsumerError(err error) Error {
+	return &defaultError{
+		CodeValue:    ErrCodeKafkaConsumerFailed,
+		MessageValue: err.Error(),
+	}
 }

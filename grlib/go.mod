@@ -3,6 +3,7 @@ module github.com/kazekim/backend-engineer-challenge/grlib
 go 1.16
 
 require (
+	github.com/Shopify/sarama v1.37.2
 	github.com/gin-gonic/gin v1.8.1
 	github.com/go-git/go-git/v5 v5.4.2
 	github.com/go-playground/locales v0.14.0

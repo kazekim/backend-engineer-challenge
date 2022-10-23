@@ -11,4 +11,7 @@ type UseCase interface {
 	DeleteGitRepositoryById(id string) grerrors.Error
 	GetGitRepositoryById(id string) (*grmodels.GitRepository, grerrors.Error)
 	ListGitRepositories(filter challengemodels.GitRepositoryFilterData, values ...int64) (*[]grmodels.GitRepository, int64, grerrors.Error)
+	UpdateGitRepositoryById(id string, data challengemodels.UpdateGitRepositoryData) grerrors.Error
+
+	StartGitRepositoryScanning(id string) (*grmodels.GitRepositoryScanResult, grerrors.Error)
 }

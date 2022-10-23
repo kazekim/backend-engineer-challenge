@@ -1,7 +1,6 @@
 package begin
 
 import (
-
 	"github.com/gin-gonic/gin"
 )
 

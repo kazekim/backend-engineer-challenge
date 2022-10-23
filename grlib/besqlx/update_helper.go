@@ -14,6 +14,7 @@ type UpdateHelper struct {
 
 //NewUpdateHelper init code helper to make update database query code more clean
 func (c defaultClient) NewUpdateHelper() *UpdateHelper {
+
 	return &UpdateHelper{
 		params:      make(map[string]interface{}),
 		whereParams: make(map[string]interface{}),
@@ -32,7 +33,12 @@ func (h *UpdateHelper) SetParam(key string, value interface{}) {
 }
 
 //CommitUpdateQuery do update query
-func (h *UpdateHelper) CommitUpdateQuery(tableName string) grerrors.Error {
+func (h *UpdateHelper) CommitUpdateQuery(model interface{}) grerrors.Error {
+
+	tableName, vErr := parseTableName(model)
+	if vErr != nil {
+		return vErr
+	}
 
 	var args []interface{}
 
@@ -42,15 +48,17 @@ func (h *UpdateHelper) CommitUpdateQuery(tableName string) grerrors.Error {
 
 	updateQuery := ""
 	isNotFirstUpdateClause := false
+	count := 1
 	for k, v := range h.params {
 		if isNotFirstUpdateClause {
 			updateQuery = fmt.Sprintf("%v%v", updateQuery, ", ")
 		} else {
 			isNotFirstUpdateClause = true
 		}
-		updateQuery = fmt.Sprintf("%v%v = ?", updateQuery, k)
+		updateQuery = fmt.Sprintf("%v%v = $%d", updateQuery, k, count)
 
 		args = append(args, v)
+		count++
 	}
 
 	whereQuery := ""
@@ -62,9 +70,10 @@ func (h *UpdateHelper) CommitUpdateQuery(tableName string) grerrors.Error {
 			} else {
 				isNotFirstWhereClause = true
 			}
-			whereQuery = fmt.Sprintf("%v%v = ?", whereQuery, k)
+			whereQuery = fmt.Sprintf("%v%v = $%d", whereQuery, k, count)
 
 			args = append(args, v)
+			count++
 		}
 	} else {
 		return grerrors.ErrNoWhereClauseInDatabaseQuery

@@ -6,7 +6,7 @@ import (
 )
 
 type RouterGroup interface {
-	Group(relativePath string)  RouterGroup
+	Group(relativePath string) RouterGroup
 
 	POST(relativePath string, handler HandlerFunc)
 	GET(relativePath string, handler HandlerFunc)
@@ -19,7 +19,7 @@ type defaultRouterGroup struct {
 }
 
 //Group create new sub RouterGroup from relativePath
-func (rg *defaultRouterGroup) Group(relativePath string)  RouterGroup {
+func (rg *defaultRouterGroup) Group(relativePath string) RouterGroup {
 	g := rg.g.Group(relativePath)
 	return &defaultRouterGroup{
 		g: *g,

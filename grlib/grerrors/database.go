@@ -14,3 +14,8 @@ func NewDatabaseError(err error) Error {
 		return NewError(ErrCodeDatabaseError, err.Error())
 	}
 }
+
+//NewDatabaseErrorWithMessage init database error with error message
+func NewDatabaseErrorWithMessage(message string) Error {
+	return NewError(ErrCodeDatabaseError, message)
+}

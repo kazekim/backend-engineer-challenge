@@ -1,4 +1,4 @@
-package grcgitscanner
+package grgitscanner
 
 type ScannerInput struct {
 	FilePath string `json:"file_path"`

@@ -20,7 +20,7 @@ func (h *defaultHandler) FrontListGitRepositories(c *begincontext.Context) {
 
 	resp := challengemodels.FrontListGitRepositoriesResponse{
 		Datas: *m,
-		Page: 1,
+		Page:  1,
 		Count: 2,
 	}
 

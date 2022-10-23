@@ -1,4 +1,4 @@
-package grcgitscanner
+package grgitscanner
 
 import (
 	"fmt"

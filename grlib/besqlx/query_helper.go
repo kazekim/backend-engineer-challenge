@@ -6,12 +6,12 @@ import (
 )
 
 type SelectQueryBuilder struct {
-	SelectQuery string `json:"select_query"`
-	WhereQuery string `json:"where_query"`
-	OrderByQuery *string `json:"order_by_query"`
-	Limit *int64 `json:"limit"`
-	Page *int64 `json:"page"`
-	Args []interface{} `json:"args"`
+	SelectQuery  string        `json:"select_query"`
+	WhereQuery   string        `json:"where_query"`
+	OrderByQuery *string       `json:"order_by_query"`
+	Limit        *int64        `json:"limit"`
+	Page         *int64        `json:"page"`
+	Args         []interface{} `json:"args"`
 }
 
 //Get query normal select query and return first value found in 'dest' struct
@@ -39,9 +39,9 @@ func (c *defaultClient) Select(model interface{}, dest interface{}, qb SelectQue
 	limitQuery := ""
 	if qb.Page != nil && qb.Limit != nil {
 		limit := *qb.Limit
-		offset := ((*qb.Page -1) * *qb.Limit)
+		offset := ((*qb.Page - 1) * *qb.Limit)
 		limitQuery = fmt.Sprintf(" limit %v offset %v", limit, offset)
-	}else if qb.Limit != nil {
+	} else if qb.Limit != nil {
 		limitQuery = fmt.Sprintf(" limit %v", *qb.Limit)
 	}
 

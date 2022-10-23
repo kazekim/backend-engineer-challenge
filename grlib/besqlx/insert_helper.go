@@ -16,7 +16,7 @@ func (c *defaultClient) NamedExec(paramQuery, valueQuery string, arg interface{}
 
 	query := fmt.Sprintf("insert into %v (%v) values (%v)", tableName, paramQuery, valueQuery)
 
-	if obj, ok := arg.(interface{BeforeCreate() (err error)}); ok {
+	if obj, ok := arg.(interface{ BeforeCreate() (err error) }); ok {
 		err := obj.BeforeCreate()
 		if err != nil {
 			return nil, grerrors.NewDatabaseError(err)
@@ -28,7 +28,7 @@ func (c *defaultClient) NamedExec(paramQuery, valueQuery string, arg interface{}
 		return nil, grerrors.NewDatabaseError(err)
 	}
 
-	if obj, ok := arg.(interface{AfterCreate() (err error)}); ok {
+	if obj, ok := arg.(interface{ AfterCreate() (err error) }); ok {
 		err := obj.AfterCreate()
 		if err != nil {
 			return nil, grerrors.NewDatabaseError(err)

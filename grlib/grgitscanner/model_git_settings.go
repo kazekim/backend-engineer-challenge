@@ -1,4 +1,4 @@
-package grcgitscanner
+package grgitscanner
 
 type GitSettings struct {
 	Name string `json:"name"`

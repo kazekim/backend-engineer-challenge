@@ -1,4 +1,4 @@
-package grcenums
+package grenums
 
 type Severity string
 

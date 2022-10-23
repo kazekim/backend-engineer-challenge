@@ -1,4 +1,4 @@
-package grcgitscanner
+package grgitscanner
 
 import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/befiles"

@@ -22,7 +22,7 @@ func (h *defaultHandler) FrontListGitRepositoryScanResults(c *begincontext.Conte
 
 	resp := challengemodels.FrontListGitRepositoryScanResultsResponse{
 		Datas: *m,
-		Page: page,
+		Page:  page,
 		Count: count,
 	}
 

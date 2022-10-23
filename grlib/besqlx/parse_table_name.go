@@ -9,9 +9,9 @@ import (
 func parseTableName(arg interface{}) (string, grerrors.Error) {
 	st := reflect.TypeOf(arg)
 	tableName := ""
-	if obj, ok := arg.(interface{TableName() string}); ok {
+	if obj, ok := arg.(interface{ TableName() string }); ok {
 		tableName = obj.TableName()
-	}else{
+	} else {
 		eMsg := fmt.Sprintf("dao %v: has no TableName function defined", st.Name())
 		return "", grerrors.NewDatabaseErrorWithMessage(eMsg)
 	}

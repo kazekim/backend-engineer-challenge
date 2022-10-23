@@ -9,12 +9,12 @@ import (
 
 type GitRepositoryScanResult struct {
 	besqlx.IDModel
-	RepositoryId string              `db:"repository_id"`
+	RepositoryId string             `db:"repository_id"`
 	Status       grenums.ScanStatus `db:"status"`
-	Findings     bejson.JSON         `db:"findings"`
-	QueuedAt     sql.NullTime        `db:"queued_at"`
-	ScanningAt   sql.NullTime        `db:"scanning_at"`
-	FinishedAt   sql.NullTime        `db:"finished_at"`
+	Findings     bejson.JSON        `db:"findings"`
+	QueuedAt     sql.NullTime       `db:"queued_at"`
+	ScanningAt   sql.NullTime       `db:"scanning_at"`
+	FinishedAt   sql.NullTime       `db:"finished_at"`
 }
 
 func (pf GitRepositoryScanResult) TableName() string {

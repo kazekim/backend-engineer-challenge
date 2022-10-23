@@ -1,6 +1,6 @@
-package grcgitscanner
+package grgitscanner
 
-import grcenums "github.com/kazekim/backend-engineer-challenge/grchallengeapi/enums"
+import "github.com/kazekim/backend-engineer-challenge/grlib/grenums"
 
 type GitScanningResult struct {
 	Type     ScannerType `json:"type"`
@@ -23,6 +23,6 @@ type Begin struct {
 }
 
 type Metadata struct {
-	Description string            `json:"description"`
-	Severity    grcenums.Severity `json:"severity"`
+	Description string           `json:"description"`
+	Severity    grenums.Severity `json:"severity"`
 }

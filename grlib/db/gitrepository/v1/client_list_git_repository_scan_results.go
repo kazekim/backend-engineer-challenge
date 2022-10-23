@@ -25,7 +25,7 @@ func (c *defaultClient) ListGitRepositoryScanResults(filter grcgitrepositorydbda
 
 	orderByQuery := "sr.created_at desc"
 	sb := besqlx.SelectQueryBuilder{
-		SelectQuery:  "sr.id, gr.name as repository_name, gr.url as repository_url, sr.status, sr.findings, " +
+		SelectQuery: "sr.id, gr.name as repository_name, gr.url as repository_url, sr.status, sr.findings, " +
 			"sr.queued_at, sr.scanning_at, sr.finished_at",
 		WhereQuery:   whereQuery,
 		OrderByQuery: &orderByQuery,

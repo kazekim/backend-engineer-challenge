@@ -1,6 +1,6 @@
 package grcconst
 
 const (
-	ParamGitRepositoryId = "repository_id"
+	ParamGitRepositoryId           = "repository_id"
 	ParamGitRepositoryScanResultId = "result_id"
 )

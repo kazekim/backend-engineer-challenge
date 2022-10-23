@@ -64,7 +64,7 @@ func (u *defaultUpdateGitRepositoryScanResultDB) Findings(value interface{}) Upd
 //QueuedAt set parameter to update queued_at field
 func (u *defaultUpdateGitRepositoryScanResultDB) QueuedAt(value time.Time) UpdateGitRepositoryScanResultDB {
 	t := sql.NullTime{
-		Time: value,
+		Time:  value,
 		Valid: true,
 	}
 	u.helper.SetParam("queued_at", t)
@@ -74,7 +74,7 @@ func (u *defaultUpdateGitRepositoryScanResultDB) QueuedAt(value time.Time) Updat
 //ScanningAt set parameter to update scanning_at field
 func (u *defaultUpdateGitRepositoryScanResultDB) ScanningAt(value time.Time) UpdateGitRepositoryScanResultDB {
 	t := sql.NullTime{
-		Time: value,
+		Time:  value,
 		Valid: true,
 	}
 	u.helper.SetParam("scanning_at", t)
@@ -84,7 +84,7 @@ func (u *defaultUpdateGitRepositoryScanResultDB) ScanningAt(value time.Time) Upd
 //FinishedAt set parameter to update finished_at field
 func (u *defaultUpdateGitRepositoryScanResultDB) FinishedAt(value time.Time) UpdateGitRepositoryScanResultDB {
 	t := sql.NullTime{
-		Time: value,
+		Time:  value,
 		Valid: true,
 	}
 	u.helper.SetParam("finished_at", t)

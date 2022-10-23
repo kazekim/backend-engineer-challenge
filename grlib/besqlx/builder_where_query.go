@@ -9,11 +9,11 @@ type WhereQueryBuilder interface {
 
 type defaultWhereQueryBuilder struct {
 	whereQuery string
-	args []interface{}
+	args       []interface{}
 }
 
 //NewWhereQueryBuilder create where query builder
-func NewWhereQueryBuilder()  WhereQueryBuilder {
+func NewWhereQueryBuilder() WhereQueryBuilder {
 	return &defaultWhereQueryBuilder{
 		args: []interface{}{},
 	}
@@ -22,9 +22,9 @@ func NewWhereQueryBuilder()  WhereQueryBuilder {
 //Where add wher clause
 func (b *defaultWhereQueryBuilder) Where(fieldName string, value interface{}, op WhereOperator) {
 	if b.whereQuery != "" {
-		b.whereQuery = fmt.Sprintf(" and %v %v $%d", fieldName, op, len(b.args) + 1)
-	}else{
-		b.whereQuery = fmt.Sprintf("%v %v $%d", fieldName, op, len(b.args) + 1)
+		b.whereQuery = fmt.Sprintf(" and %v %v $%d", fieldName, op, len(b.args)+1)
+	} else {
+		b.whereQuery = fmt.Sprintf("%v %v $%d", fieldName, op, len(b.args)+1)
 	}
 
 	switch op {

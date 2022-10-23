@@ -7,14 +7,14 @@ import (
 )
 
 type GitRepositoryScanResultWithDetail struct {
-	Id           *string              `db:"id"`
-	Name     string `db:"repository_name"`
-	Url      string `db:"repository_url"`
-	Status       grenums.ScanStatus `db:"status"`
-	Findings     bejson.JSON         `db:"findings"`
-	QueuedAt     sql.NullTime        `db:"queued_at"`
-	ScanningAt   sql.NullTime        `db:"scanning_at"`
-	FinishedAt   sql.NullTime        `db:"finished_at"`
+	Id         *string            `db:"id"`
+	Name       string             `db:"repository_name"`
+	Url        string             `db:"repository_url"`
+	Status     grenums.ScanStatus `db:"status"`
+	Findings   bejson.JSON        `db:"findings"`
+	QueuedAt   sql.NullTime       `db:"queued_at"`
+	ScanningAt sql.NullTime       `db:"scanning_at"`
+	FinishedAt sql.NullTime       `db:"finished_at"`
 }
 
 func (pf GitRepositoryScanResultWithDetail) TableName() string {

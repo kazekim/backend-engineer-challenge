@@ -16,4 +16,5 @@ const (
 	ErrMessageCoinNotFound                 = "coin not found"
 	ErrMessageNoWhereClauseInDatabaseQuery = "no where clause in database query"
 	ErrMessageGitHasNotBeenLoadedYet       = "git has not been loaded yet"
+	ErrMessageDataNotFound                 = "data not found"
 )

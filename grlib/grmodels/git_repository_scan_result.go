@@ -7,14 +7,14 @@ import (
 	"time"
 )
 
-var MockGitRepositoryScanResult = GitRepositoryScanResult {
-	Id: "xxxx",
-	CreatedAt: time.Now(),
-	UpdatedAt: time.Now(),
+var MockGitRepositoryScanResult = GitRepositoryScanResult{
+	Id:           "xxxx",
+	CreatedAt:    time.Now(),
+	UpdatedAt:    time.Now(),
 	RepositoryId: "RepositoryId",
-	Status: grenums.ScanStatusQueued,
-	Findings: bejson.JSON("test"),
-	QueuedAt: time.Now(),
+	Status:       grenums.ScanStatusQueued,
+	Findings:     bejson.JSON("test"),
+	QueuedAt:     time.Now(),
 }
 
 type GitRepositoryScanResult struct {

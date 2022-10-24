@@ -15,5 +15,6 @@ require (
 	github.com/lib/pq v1.10.7
 	github.com/rs/xid v1.4.0
 	github.com/spf13/viper v1.13.0
+	github.com/stretchr/testify v1.8.0
 	golang.org/x/image v0.0.0-20190802002840-cff245a6509b
 )

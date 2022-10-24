@@ -16,4 +16,5 @@ var (
 	ErrUnsupportedFileType          = NewError(ErrCodeUnsupportedFileType, ErrMessageUnsupportedFileType)
 	ErrNoWhereClauseInDatabaseQuery = NewError(ErrCodeNoWhereClauseInDatabaseQuery, ErrMessageNoWhereClauseInDatabaseQuery)
 	ErrGitHasNotBeenLoadedYet       = NewError(ErrCodeGitHasNotBeenLoadedYet, ErrMessageGitHasNotBeenLoadedYet)
+	ErrDataNotFound                 = NewError(ErrCodeDataNotFound, ErrMessageDataNotFound)
 )

@@ -17,7 +17,7 @@ func TestDefaultUseCase_CreateGitRepository(t *testing.T) {
 
 	data := challengemodels.CreateGitRepositoryData{
 		Name: "test repo",
-		Url: "https://github.com/kazekim/test.git",
+		Url:  "https://github.com/kazekim/test.git",
 	}
 
 	t.Run("create git repository success", func(t *testing.T) {

@@ -22,7 +22,7 @@ func TestDefaultUseCase_ListGitRepositories(t *testing.T) {
 		mockRepo := new(challengerepositorymocks.Repository)
 		mockRepo.On("ListGitRepositories", mock.AnythingOfType("challengemodels.GitRepositoryFilterData")).Return(
 			func(filter challengemodels.GitRepositoryFilterData, values ...int64) *[]grmodels.GitRepository {
-				return &[]grmodels.GitRepository {
+				return &[]grmodels.GitRepository{
 					grmodels.MockGitRepository,
 				}
 			},

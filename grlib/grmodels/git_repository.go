@@ -5,13 +5,13 @@ import (
 	"time"
 )
 
-var MockGitRepository = GitRepository {
-	Id: "xxxxx",
+var MockGitRepository = GitRepository{
+	Id:        "xxxxx",
 	CreatedAt: time.Now(),
 	UpdatedAt: time.Now(),
-	Name: "test git",
-	Url: "test url",
-	IsActive: true,
+	Name:      "test git",
+	Url:       "test url",
+	IsActive:  true,
 }
 
 type GitRepository struct {

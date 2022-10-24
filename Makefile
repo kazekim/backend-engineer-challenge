@@ -19,3 +19,9 @@ prepare-config:
 	cp docker_configs/grscanningworker/config.yml.sample docker_configs/grscanningworker/config.yml
 	cp grchallengeapi/configs/config.yml.sample grchallengeapi/configs/config.yml
 	cp grscanningworker/configs/config.yml.sample grscanningworker/configs/config.yml
+log-kafka:
+	docker logs -f backend-engineer-challenge_kafka_1
+log-api:
+	docker logs -f backend-engineer-challenge_grchallengeapi_1
+log-worker:
+	docker logs -f backend-engineer-challenge_grscanningworker_1

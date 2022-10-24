@@ -33,7 +33,7 @@ func (c *defaultClient) ScanGitFromGitSettings(gs *GitSettings) (*GitScanningRes
 		return nil, vErr
 	}
 
-	chanMaxSize := 50
+	chanMaxSize := c.cfg.ChannelAmountPerRequest
 	fq := *files
 
 	fChan := make(chan ScanFileResult)
@@ -50,13 +50,15 @@ func (c *defaultClient) ScanGitFromGitSettings(gs *GitSettings) (*GitScanningRes
 		}
 	}
 
-	for true {
+	count := 0
+	for count < len(*files) {
 		result := <-fChan
 		if result.Error != nil {
 			return nil, vErr
 		} else {
 			sr.Findings = append(sr.Findings, *result.Findings...)
 		}
+		count++
 
 		if len(fq) > 0 {
 			f := fq[0]
@@ -66,18 +68,17 @@ func (c *defaultClient) ScanGitFromGitSettings(gs *GitSettings) (*GitScanningRes
 				fq = []string{}
 			}
 			go c.scanFileByLine(g, *scanners, f, fChan)
-		}else {
-			break
 		}
 	}
 
 	return &sr, nil
 }
 
+//scanFileByLine go routine func to all lines for each file with scanner
 func (c *defaultClient) scanFileByLine(g begit.Git, scanners []Scanner, fileFullPath string, fChan chan ScanFileResult) {
 
 	var result ScanFileResult
-	var fs []Finding
+	fs := []Finding{}
 	vErr := g.ScanFileByLine(fileFullPath, func(data string, line int64) grerrors.Error {
 
 		for _, scanner := range scanners {

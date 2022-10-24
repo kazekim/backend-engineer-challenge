@@ -86,4 +86,5 @@ temp/*
 
 db_data
 
-config.yml
+grscanningworker/configs/*.yml
+grchallengeapi/configs/*.yml

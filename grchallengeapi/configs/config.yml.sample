@@ -4,7 +4,7 @@ server_host: "http://localhost"
 server_port: "8011"
 database_config:
   database_driver: "postgres"
-  database_url: "grdb"
+  database_url: "localhost"
   database_port: "5454"
   database_name: "grdb"
   database_username: "gruser"

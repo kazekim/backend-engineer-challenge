@@ -78,15 +78,42 @@ The Result entity should have the following properties and be stored in a databa
 | Extra Features    | 0-2    |
 
 
+## Concept
+
+This project will build 5 containers for running the application. It will have
+
+- Challenge API Service : web service for calling api
+- Scanning Worker Service : worker service for doing the job (scanning the git repository)
+- PostgreSQL Service : for storing data
+- Message Queue Service (Kafka) : for manage job queue
+
+You can see image below to see the application structure.
+
+![](document/guardrails-challenge.jpg?raw=true)
+
+This is only the initiate structure. In the future, it will need to scale up and will have 
+more services to add into it.
+
+## How it works?
+
+- Users will call request to 'Challenge API' to add their git repositories name and url. 
+- They can edit any information of the repository or delete some through the api too.
+- Users can list and get information of repository through API
+- They can have a Security Scan by calling API. The scanning process will take time 
+depends on how big the repository it is. Users can go back to see the scanning status 
+through the API. Then, when the scanning process have beed done and have status 'Success', 
+they can see the scanning result via the Scan Result API.
+
 ## Implementation
 
 **Requirement:**
 
 Please make sure that you have installed these applications before you can run the project
-- docker
-- docker-compose
+- Docker
+- Docker-Compose
 - Makefile
-- golang (only if you need to have local develop)
+- Postman (for opening API document)
+- Golang (only if you need to have local develop)
 
 **How to run project:**
 
@@ -124,3 +151,28 @@ to start the api and worker container directly. (This way will be faster because
 > make api-start
 
 
+## How to use API?:
+
+You should import postman file into the Postman application and open it. You will see list of API like this
+
+![](document/api-list.png?raw=true)
+
+There are set of API request group by use cases. (You can see in Postman file to look for example request)
+
+**Repository**
+
+- Create : api for creating git repository data
+- Update : api for updating git repository data
+- Delete : api for deleting git repository data
+- Get : api for getting git repository data by repository id
+- List : api for listing git repository data
+
+**Repository > Scanning**
+
+- Start Scan by Repository ID : api for start scanning git repository by repository id
+- Scan Result List by Repository ID : api for list the scan result base on repository id  with filters
+
+**Scan Result**
+
+- Get : api for getting scan result data by result id
+- List : api for listing scan all result data in system with filters

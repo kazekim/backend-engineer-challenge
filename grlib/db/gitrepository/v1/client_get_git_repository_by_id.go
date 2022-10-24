@@ -14,7 +14,7 @@ func (c *defaultClient) GetGitRepositoryById(id string) (*grgitrepositorydbdaos.
 	vErr := c.db.Get(&dao, q, id)
 	if vErr != nil {
 		if vErr == grerrors.ErrDataNotFound {
-			return nil, grerrors.NewDatabaseErrorWithMessage("git repository id not found")
+			return nil, grerrors.NewError(grerrors.ErrCodeDataNotFound, "git repository id not found")
 		} else {
 			return nil, vErr
 		}

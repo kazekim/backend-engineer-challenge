@@ -15,7 +15,7 @@ func (c *defaultClient) GetGitRepositoryScanResultById(id string) (*grgitreposit
 	vErr := c.db.Get(&dao, q, id)
 	if vErr != nil {
 		if vErr == grerrors.ErrDataNotFound {
-			return nil, grerrors.NewDatabaseErrorWithMessage("scan result id not found")
+			return nil, grerrors.NewError(grerrors.ErrCodeDataNotFound, "scan result id not found")
 		} else {
 			return nil, vErr
 		}

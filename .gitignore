@@ -85,3 +85,5 @@ bin/*
 temp/*
 
 db_data
+
+config.yml

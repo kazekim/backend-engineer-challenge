@@ -1,5 +1,22 @@
 version: '3'
 services:
+  grscanningworker:
+    container_name: grscanningworker
+    privileged: true
+    image: grscanningworker:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-Worker.Local
+      args:
+        TIMEZONE: 'Asia/Bangkok'
+        APP_DIR: /go/src/github.com/kazekim/backend-engineer-challenge/grscanningworker
+    volumes:
+      - ./temp:/data/app/temp
+    environment:
+      CONFIG_PATH: /data/app/configs/
+    restart: always
+    networks:
+      - guardrails
   grchallengeapi:
     container_name: grchallengeapi
     privileged: true
@@ -19,23 +36,8 @@ services:
     restart: always
     networks:
       - guardrails
-  grscanningworker:
-    container_name: grscanningworker
-    privileged: true
-    image: grscanningworker:latest
-    build:
-      context: .
-      dockerfile: Dockerfile-Worker.Local
-      args:
-        TIMEZONE: 'Asia/Bangkok'
-        APP_DIR: /go/src/github.com/kazekim/backend-engineer-challenge/grscanningworker
-    volumes:
-      - ./temp:/data/app/temp
-    environment:
-      CONFIG_PATH: /data/app/configs/
-    restart: always
-    networks:
-      - guardrails
+    depends_on:
+      - grscanningworker
 networks:
   guardrails:
     external:

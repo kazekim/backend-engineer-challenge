@@ -5,7 +5,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grmodels"
 )
 
-//GetGitRepositoryScanResultById get git repository scan result entity with reference id by db client
+// GetGitRepositoryScanResultById get git repository scan result entity with reference id by db client
 func (r *defaultRepository) GetGitRepositoryScanResultById(id string) (*grmodels.GitRepositoryScanResultWithDetail, grerrors.Error) {
 
 	dao, vErr := r.grc.GetGitRepositoryScanResultById(id)

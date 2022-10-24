@@ -13,7 +13,7 @@ import (
 	"testing"
 )
 
-//TestDefaultUseCase_DoGitRepositoryScanningForResultId test function for use case DoGitRepositoryScanningForResultId func
+// TestDefaultUseCase_DoGitRepositoryScanningForResultId test function for use case DoGitRepositoryScanningForResultId func
 func TestDefaultUseCase_DoGitRepositoryScanningForResultId(t *testing.T) {
 
 	mockRepoId := "xxxxx"

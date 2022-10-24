@@ -6,7 +6,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grmodels"
 )
 
-//CreateGitRepository create git repository from input data
+// CreateGitRepository create git repository from input data
 func (u *defaultUseCase) CreateGitRepository(data challengemodels.CreateGitRepositoryData) (*grmodels.GitRepository, grerrors.Error) {
 
 	return u.cr.CreateGitRepository(data)

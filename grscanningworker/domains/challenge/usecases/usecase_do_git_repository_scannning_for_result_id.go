@@ -8,9 +8,9 @@ import (
 	"time"
 )
 
-//DoGitRepositoryScanningForResultId do scan process when receive queue from kafka
-//this action will check if status is on queued. If yes, continue the process. If No, it will cancel the process
-//When scanning done, it will update the scan result again whether it success or failure
+// DoGitRepositoryScanningForResultId do scan process when receive queue from kafka
+// this action will check if status is on queued. If yes, continue the process. If No, it will cancel the process
+// When scanning done, it will update the scan result again whether it success or failure
 func (u *defaultUseCase) DoGitRepositoryScanningForResultId(resultId string) grerrors.Error {
 
 	gr, vErr := u.cr.GetGitRepositoryScanResultById(resultId)

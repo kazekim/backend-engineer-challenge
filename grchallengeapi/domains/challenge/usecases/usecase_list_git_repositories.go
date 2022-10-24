@@ -6,7 +6,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grmodels"
 )
 
-//ListGitRepositories list git repository datas by filter and page, limit data
+// ListGitRepositories list git repository datas by filter and page, limit data
 func (u *defaultUseCase) ListGitRepositories(filter challengemodels.GitRepositoryFilterData, values ...int64) (*[]grmodels.GitRepository, int64, grerrors.Error) {
 	return u.cr.ListGitRepositories(filter, values...)
 }

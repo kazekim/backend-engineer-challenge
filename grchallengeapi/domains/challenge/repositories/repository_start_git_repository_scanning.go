@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-//StartGitRepositoryScanning create git repository scanning data by repository id with initial data
+// StartGitRepositoryScanning create git repository scanning data by repository id with initial data
 func (r *defaultRepository) StartGitRepositoryScanning(id string) (*grmodels.GitRepositoryScanResult, grerrors.Error) {
 
 	_, vErr := r.grc.GetGitRepositoryById(id)

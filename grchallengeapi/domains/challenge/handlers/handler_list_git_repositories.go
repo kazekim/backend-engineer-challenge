@@ -5,7 +5,7 @@ import (
 	begincontext "github.com/kazekim/backend-engineer-challenge/grlib/begin/context"
 )
 
-//FrontListGitRepositories list git repositories handler
+// FrontListGitRepositories list git repositories handler
 func (h *defaultHandler) FrontListGitRepositories(c *begincontext.Context) {
 
 	var req challengemodels.FrontListGitRepositoriesRequest

@@ -5,7 +5,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 )
 
-//UpdateGitRepositoryById update git repository by repository id and update datas with db client
+// UpdateGitRepositoryById update git repository by repository id and update datas with db client
 func (r *defaultRepository) UpdateGitRepositoryById(id string, data challengemodels.UpdateGitRepositoryData) grerrors.Error {
 
 	uDb := r.grc.UpdateGitRepositoryById(id)

@@ -12,7 +12,7 @@ import (
 	"testing"
 )
 
-//TestDefaultUseCase_StartGitRepositoryScanning test function for use case StartGitRepositoryScanning func
+// TestDefaultUseCase_StartGitRepositoryScanning test function for use case StartGitRepositoryScanning func
 func TestDefaultUseCase_StartGitRepositoryScanning(t *testing.T) {
 
 	id := "xxxx"

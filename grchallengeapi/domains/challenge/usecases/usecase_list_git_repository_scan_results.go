@@ -6,7 +6,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grmodels"
 )
 
-//ListGitRepositoryScanResults list git repository scan result data by filter and page, limit data
+// ListGitRepositoryScanResults list git repository scan result data by filter and page, limit data
 func (u *defaultUseCase) ListGitRepositoryScanResults(filter challengemodels.GitRepositoryScanResultFilterData, values ...int64) (*[]grmodels.GitRepositoryScanResultWithDetail, int64, grerrors.Error) {
 	return u.cr.ListGitRepositoryScanResults(filter, values...)
 }

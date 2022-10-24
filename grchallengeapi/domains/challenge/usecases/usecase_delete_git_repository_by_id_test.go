@@ -10,7 +10,7 @@ import (
 	"testing"
 )
 
-//TestDefaultUseCase_DeleteGitRepositoryById test function for use case DeleteGitRepositoryById func
+// TestDefaultUseCase_DeleteGitRepositoryById test function for use case DeleteGitRepositoryById func
 func TestDefaultUseCase_DeleteGitRepositoryById(t *testing.T) {
 
 	mockId := "xxxxx"

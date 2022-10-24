@@ -5,7 +5,7 @@ import (
 	begincontext "github.com/kazekim/backend-engineer-challenge/grlib/begin/context"
 )
 
-//FrontDeleteGitRepositoryById delete git repository by id handler
+// FrontDeleteGitRepositoryById delete git repository by id handler
 func (h *defaultHandler) FrontDeleteGitRepositoryById(c *begincontext.Context) {
 
 	var req challengemodels.FrontDeleteGitRepositoryByIdRequest

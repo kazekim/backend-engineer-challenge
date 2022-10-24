@@ -7,7 +7,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grmodels"
 )
 
-//ListGitRepositories parse input filter data to params and list git repository entities by db client
+// ListGitRepositories parse input filter data to params and list git repository entities by db client
 func (r *defaultRepository) ListGitRepositories(filter challengemodels.GitRepositoryFilterData, values ...int64) (*[]grmodels.GitRepository, int64, grerrors.Error) {
 
 	fParams := grgitrepositorydbdaos.GitRepositoryFilter{

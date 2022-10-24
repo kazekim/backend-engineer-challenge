@@ -5,7 +5,7 @@ import (
 	begincontext "github.com/kazekim/backend-engineer-challenge/grlib/begin/context"
 )
 
-//FrontCreateGitRepository create git repository handler
+// FrontCreateGitRepository create git repository handler
 func (h *defaultHandler) FrontCreateGitRepository(c *begincontext.Context) {
 
 	var req challengemodels.FrontCreateGitRepositoryRequest

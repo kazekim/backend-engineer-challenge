@@ -1,6 +1,7 @@
 version: '3'
 services:
   grchallengeapi:
+    container_name: grchallengeapi
     privileged: true
     image: grchallengeapi:latest
     build:
@@ -19,6 +20,7 @@ services:
     networks:
       - guardrails
   grscanningworker:
+    container_name: grscanningworker
     privileged: true
     image: grscanningworker:latest
     build:

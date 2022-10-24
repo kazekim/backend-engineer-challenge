@@ -14,5 +14,5 @@ database_config:
 git_scanner_config:
   root_path: "temp"
 git_scanner_mq_config:
-  kafka_broker_url: kafka:9092
+  kafka_broker_url: grkafka:9092
   kafka_server_id: git_repository_scanner_01

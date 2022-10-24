@@ -2,6 +2,7 @@ version: '3'
 services:
   grdb:
     image: postgres:latest
+    container_name: grdb
     healthcheck:
       test: [ "CMD", "pg_isready", "-q", "-d", "grdb", "-U", "gruser" ]
       timeout: 45s
@@ -23,6 +24,7 @@ services:
       - guardrails
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
+    container_name: grzookeeper
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
@@ -32,8 +34,9 @@ services:
       - grdb
     networks:
       - guardrails
-  kafka:
+  grkafka:
     image: confluentinc/cp-server:7.0.1
+    container_name: grkafka
     depends_on:
       - zookeeper
     ports:

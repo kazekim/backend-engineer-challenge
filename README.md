@@ -150,6 +150,13 @@ to start the api and worker container directly. (This way will be faster because
 
 > make api-start
 
+You can see log of API with this command
+
+> make log-api
+
+You can see log of Worker with this command
+
+> make log-worker
 
 ## How to use API?:
 
@@ -181,3 +188,18 @@ There are set of API request group by use cases. (You can see in Postman file to
 
 - Get : api for getting scan result data by result id
 - List : api for listing scan all result data in system with filters
+
+
+## Local Development
+
+To work in local development, you need to know where you can edit the config file and execute the project
+
+**Challenge API**
+
+- Config file is stored in grchallengeapi/configs/config.yml
+- Go's main file is stored in grchallengeapi/cmd/grchallengeapi/main.go
+
+**Scanning Worker**
+
+- Config file is stored in grscanningworker/configs/config.yml
+- Go's main file is stored in grscanningworker/cmd/grscanningworker/main.go

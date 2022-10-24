@@ -88,3 +88,5 @@ db_data
 
 grscanningworker/configs/*.yml
 grchallengeapi/configs/*.yml
+docker_configs/grchallengeapi/*.yml
+docker_configs/grscanningworker/*.yml

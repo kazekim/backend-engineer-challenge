@@ -157,6 +157,10 @@ You should import postman file into the Postman application and open it. You wil
 
 ![](document/api-list.png?raw=true)
 
+
+[Download Postman Collection](GuardRails Challenge.postman_collection.json)
+[DownloadPostman Environment](GuardRails Challenge - Staging.postman_environment.json)
+
 There are set of API request group by use cases. (You can see in Postman file to look for example request)
 
 **Repository**

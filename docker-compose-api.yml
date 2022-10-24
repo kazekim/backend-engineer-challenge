@@ -1,0 +1,40 @@
+version: '3'
+services:
+  grchallengeapi:
+    privileged: true
+    image: grchallengeapi:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-API.Local
+      args:
+        TIMEZONE: 'Asia/Bangkok'
+        APP_DIR: /go/src/github.com/kazekim/backend-engineer-challenge/grchallengeapi
+    ports:
+      - 8011:8011
+    volumes:
+      - ./temp:/data/app/temp
+    environment:
+      CONFIG_PATH: /data/app/configs/
+    restart: always
+    networks:
+      - guardrails
+  grscanningworker:
+    privileged: true
+    image: grscanningworker:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-Worker.Local
+      args:
+        TIMEZONE: 'Asia/Bangkok'
+        APP_DIR: /go/src/github.com/kazekim/backend-engineer-challenge/grscanningworker
+    volumes:
+      - ./temp:/data/app/temp
+    environment:
+      CONFIG_PATH: /data/app/configs/
+    restart: always
+    networks:
+      - guardrails
+networks:
+  guardrails:
+    external:
+      name: guardrails

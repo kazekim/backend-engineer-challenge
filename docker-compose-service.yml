@@ -1,0 +1,59 @@
+version: '3'
+services:
+  grdb:
+    image: postgres:latest
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "grdb", "-U", "gruser" ]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    restart: always
+    environment:
+      - POSTGRES_USER=gruser
+      - POSTGRES_PASSWORD=asdfghjkl
+      - APP_DB_USER=gruser
+      - APP_DB_PASS=asdfghjkl
+      - APP_DB_NAME=grdb
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/
+      - ./db_data:/var/lib/postgresql/data
+    ports:
+      - 5454:5432
+    networks:
+      - guardrails
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - 22181:2181
+    depends_on:
+      - grdb
+    networks:
+      - guardrails
+  kafka:
+    image: confluentinc/cp-server:7.0.1
+    depends_on:
+      - zookeeper
+    ports:
+      - 29092:29092
+      - 9092:9092
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+      KAFKA_LISTENERS: INSIDE://:9092,OUTSIDE://:29092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    logging:
+      options:
+        max-size: 100m
+    networks:
+      - guardrails
+    restart: always
+networks:
+  guardrails:
+    external:
+      name: guardrails

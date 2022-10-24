@@ -12,6 +12,11 @@ import (
 //StartGitRepositoryScanning create git repository scanning data by repository id with initial data
 func (r *defaultRepository) StartGitRepositoryScanning(id string) (*grmodels.GitRepositoryScanResult, grerrors.Error) {
 
+	_, vErr := r.grc.GetGitRepositoryById(id)
+	if vErr != nil {
+		return nil, vErr
+	}
+
 	params := grgitrepositorydbdaos.GitRepositoryScanResult{
 		RepositoryId: id,
 		Status:       grenums.ScanStatusQueued,

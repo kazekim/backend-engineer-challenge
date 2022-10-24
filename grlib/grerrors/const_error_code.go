@@ -18,4 +18,5 @@ const (
 	ErrCodeGitHasNotBeenLoadedYet       ErrorCode = 1013
 	ErrCodeKafkaProducerFailed          ErrorCode = 1014
 	ErrCodeKafkaConsumerFailed          ErrorCode = 1015
+	ErrCodeDataNotFound                 ErrorCode = 1016
 )

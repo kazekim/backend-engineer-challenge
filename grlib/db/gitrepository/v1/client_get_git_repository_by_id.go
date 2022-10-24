@@ -11,9 +11,13 @@ func (c *defaultClient) GetGitRepositoryById(id string) (*grgitrepositorydbdaos.
 
 	var dao grgitrepositorydbdaos.GitRepository
 	q := fmt.Sprintf(`select * from %v where id = $1`, dao.TableName())
-	err := c.db.Get(&dao, q, id)
-	if err != nil {
-		return nil, grerrors.NewDatabaseError(err)
+	vErr := c.db.Get(&dao, q, id)
+	if vErr != nil {
+		if vErr == grerrors.ErrDataNotFound {
+			return nil, grerrors.NewError(grerrors.ErrCodeDataNotFound, "git repository id not found")
+		} else {
+			return nil, vErr
+		}
 	}
 
 	return &dao, nil

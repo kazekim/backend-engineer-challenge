@@ -2,6 +2,10 @@ package grgitscanner
 
 import "github.com/kazekim/backend-engineer-challenge/grlib/grenums"
 
+var MockGitScanningResult = GitScanningResult{
+	Findings: []Finding{},
+}
+
 type GitScanningResult struct {
 	Findings []Finding `json:"findings"`
 }

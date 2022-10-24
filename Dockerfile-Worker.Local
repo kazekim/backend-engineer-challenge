@@ -1,0 +1,72 @@
+## Build
+FROM golang:alpine as build
+
+ARG APP_DIR
+
+ARG TIMEZONE=Asia/Bangkok
+ARG GOOS=linux
+ARG GOARCH=amd64
+ARG UID=1000
+ARG GID=1000
+ARG USER=guardrails
+
+ENV UID=${UID} \
+    GID=${GID} \
+    USER=${USER} \
+    TZ=${TIMEZONE} \
+    CONFIG_PATH=${APP_DIR}/configs/ \
+    GOOS=${GOOS} \
+    GOARCH=${GOARCH} \
+    CGO_ENABLED=0
+
+RUN addgroup -g ${GID} -S ${USER} \
+    && adduser ${USER} -u ${UID} -D -S -s /bin/bash -G ${USER} \
+    && mkdir -p /data \
+    && chown -R ${USER}: /data
+
+USER ${UID}
+
+COPY --chown=${USER} . $GOPATH/src/github.com/kazekim/backend-engineer-challenge
+
+WORKDIR $GOPATH/src/github.com/kazekim/backend-engineer-challenge
+
+RUN mkdir -p grscanningworker/dist /data/app \
+    && cd grlib \
+    && go mod download \
+    && cd ../grscanningworker \
+    && go mod download \
+    && go build -o /data/app/grscanningworker-linux-x64 cmd/grscanningworker/main.go
+
+
+## Deploy
+FROM golang:alpine
+
+ARG TIMEZONE=Asia/Bangkok
+ARG GOOS=linux
+ARG GOARCH=amd64
+ARG UID=1000
+ARG GID=1000
+ARG USER=guardrails
+
+ENV UID=${UID} \
+    GID=${GID} \
+    USER=${USER} \
+    TZ=${TIMEZONE} \
+    CONFIG_PATH=${APP_DIR}/configs/ \
+    GOOS=${GOOS} \
+    GOARCH=${GOARCH} \
+    CGO_ENABLED=0
+
+RUN addgroup -g ${GID} -S ${USER} \
+    && adduser ${USER} -u ${UID} -D -S -s /bin/bash -G ${USER} \
+    && mkdir -p /data \
+    && chown -R ${USER}: /data
+
+USER ${UID}
+
+COPY --from=build /data/app/grscanningworker-linux-x64 /data/app/
+COPY --chown=${USER} grscanningworker/configs /data/app/configs
+
+WORKDIR /data/app
+
+CMD ["./grscanningworker-linux-x64"]

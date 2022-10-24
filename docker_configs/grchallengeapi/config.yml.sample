@@ -1,0 +1,16 @@
+release: false
+server_name: "grchallengeapi"
+server_host: "http://localhost"
+server_port: "8011"
+database_config:
+  database_driver: "postgres"
+  database_url: "grdb"
+  database_port: "5432"
+  database_name: "grdb"
+  database_username: "gruser"
+  database_password: "asdfghjkl"
+  database_log_enabled: true
+  database_disable_ssl_mode: true
+git_scanner_mq_config:
+  kafka_broker_url: kafka:9092
+  kafka_server_id: git_repository_scanner_01

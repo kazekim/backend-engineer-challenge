@@ -1,0 +1,18 @@
+version: '3'
+services:
+  grchallengeapi:
+    privileged: true
+    image: 'grchallengeapi:latest'
+    ports:
+      - 8011:8011
+    volumes:
+      - ./configs:/data/app/configs
+      - ./temp:/data/app/temp
+    environment:
+      CONFIG_PATH: /data/app/configs/
+    restart: always
+    networks:
+      - guardrails
+networks:
+  guardrails:
+    external: true

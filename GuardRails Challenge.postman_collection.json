@@ -256,6 +256,27 @@
 			"name": "Scan Result",
 			"item": [
 				{
+					"name": "Git Repository - Get by Id Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{guardrails_challenge_api_hostname}}/api/v1/front/scan_result/{{result_id}}",
+							"host": [
+								"{{guardrails_challenge_api_hostname}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"front",
+								"scan_result",
+								"{{result_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Git Repository Scan Result - List",
 					"request": {
 						"method": "POST",

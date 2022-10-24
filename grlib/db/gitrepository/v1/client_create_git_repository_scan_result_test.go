@@ -12,14 +12,14 @@ import (
 	"time"
 )
 
-//TestDefaultClient_CreateGitRepositoryScanResult test case for defaultClient CreateGitRepositoryScanResult
+// TestDefaultClient_CreateGitRepositoryScanResult test case for defaultClient CreateGitRepositoryScanResult
 func TestDefaultClient_CreateGitRepositoryScanResult(t *testing.T) {
 
 	params := grgitrepositorydbdaos.GitRepositoryScanResult{
 		RepositoryId: "xxx",
-		Status: grenums.ScanStatusQueued,
+		Status:       grenums.ScanStatusQueued,
 		QueuedAt: sql.NullTime{
-			Time: time.Now(),
+			Time:  time.Now(),
 			Valid: true,
 		},
 	}

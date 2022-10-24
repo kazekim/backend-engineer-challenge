@@ -11,7 +11,7 @@ import (
 	"testing"
 )
 
-//TestDefaultUseCase_GetGitRepositoryById test function for use case GetGitRepositoryById func
+// TestDefaultUseCase_GetGitRepositoryById test function for use case GetGitRepositoryById func
 func TestDefaultUseCase_GetGitRepositoryById(t *testing.T) {
 
 	mockId := "xxxxx"

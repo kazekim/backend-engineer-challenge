@@ -2,8 +2,8 @@ package grgitscanner
 
 import "github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 
-//LoadScanners load default scanner
-//can be modified to load scanner from database in the future
+// LoadScanners load default scanner
+// can be modified to load scanner from database in the future
 func (c *defaultClient) LoadScanners() (*[]Scanner, grerrors.Error) {
 
 	var ss []Scanner

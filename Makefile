@@ -22,11 +22,11 @@ prepare-config:
 	cp grchallengeapi/configs/config.yml.sample grchallengeapi/configs/config.yml
 	cp grscanningworker/configs/config.yml.sample grscanningworker/configs/config.yml
 log-kafka:
-	docker logs -f backend-engineer-challenge_kafka_1
+	docker logs -f grkafka
 log-api:
-	docker logs -f backend-engineer-challenge_grchallengeapi_1
+	docker logs -f grchallengeapi
 log-worker:
-	docker logs -f backend-engineer-challenge_grscanningworker_1
+	docker logs -f grscanningworker
 prepare-test:
 	cd grchallengeapi && sh scripts/generate_mock.sh
 	cd grscanningworker && sh scripts/generate_mock.sh

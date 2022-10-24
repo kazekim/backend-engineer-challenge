@@ -8,7 +8,7 @@ type defaultClient struct {
 	db besqlx.Client
 }
 
-//NewClient new git repository db client
+// NewClient new git repository db client
 func NewClient(db besqlx.Client) Client {
 	return &defaultClient{
 		db: db,

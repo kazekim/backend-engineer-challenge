@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-//TestDefaultClient_DeleteGitRepositoryById test case for defaultClient DeleteGitRepositoryById
+// TestDefaultClient_DeleteGitRepositoryById test case for defaultClient DeleteGitRepositoryById
 func TestDefaultClient_DeleteGitRepositoryById(t *testing.T) {
 
 	rId := "xxx"

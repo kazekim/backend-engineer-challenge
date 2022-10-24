@@ -6,7 +6,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 )
 
-//GetGitRepositoryScanResultById get git repository scan result data by id
+// GetGitRepositoryScanResultById get git repository scan result data by id
 func (c *defaultClient) GetGitRepositoryScanResultById(id string) (*grgitrepositorydbdaos.GitRepositoryScanResultWithDetail, grerrors.Error) {
 
 	var dao grgitrepositorydbdaos.GitRepositoryScanResultWithDetail

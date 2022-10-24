@@ -5,7 +5,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 )
 
-//DeleteGitRepositoryScanResultById delete git repository scan result row by id
+// DeleteGitRepositoryScanResultById delete git repository scan result row by id
 func (c *defaultClient) DeleteGitRepositoryScanResultById(id string) grerrors.Error {
 
 	var dao grgitrepositorydbdaos.GitRepositoryScanResult

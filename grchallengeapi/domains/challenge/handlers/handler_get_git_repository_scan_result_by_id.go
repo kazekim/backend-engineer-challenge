@@ -5,7 +5,7 @@ import (
 	begincontext "github.com/kazekim/backend-engineer-challenge/grlib/begin/context"
 )
 
-//FrontGetGitRepositoryScanResultById get git repository scan result by id handler
+// FrontGetGitRepositoryScanResultById get git repository scan result by id handler
 func (h *defaultHandler) FrontGetGitRepositoryScanResultById(c *begincontext.Context) {
 
 	var req challengemodels.FrontGetGitRepositoryScanResultByIdRequest

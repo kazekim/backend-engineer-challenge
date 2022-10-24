@@ -10,7 +10,7 @@ type defaultScanner struct {
 	rule ScannerRule
 }
 
-//NewScanner new git scanner with rules
+// NewScanner new git scanner with rules
 func NewScanner(rule ScannerRule) Scanner {
 
 	s := defaultScanner{

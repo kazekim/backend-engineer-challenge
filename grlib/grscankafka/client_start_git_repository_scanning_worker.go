@@ -6,7 +6,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 )
 
-//StartSendCampaignWorker start worker to receive job from message queue
+// StartSendCampaignWorker start worker to receive job from message queue
 func (c *defaultClient) StartSendCampaignWorker(action func(topic string, params PublishStartGitRepositoryScanningMessageParams) bekafka.WorkerStatus) grerrors.Error {
 
 	worker, vErr := c.kc.NewWorker()

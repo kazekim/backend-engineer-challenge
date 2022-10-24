@@ -7,7 +7,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grmodels"
 )
 
-//ListGitRepositoryScanResults parse input filter data to params and list git repository scan result entities by db client
+// ListGitRepositoryScanResults parse input filter data to params and list git repository scan result entities by db client
 func (r *defaultRepository) ListGitRepositoryScanResults(filter challengemodels.GitRepositoryScanResultFilterData, values ...int64) (*[]grmodels.GitRepositoryScanResultWithDetail, int64, grerrors.Error) {
 
 	fParams := grgitrepositorydbdaos.GitRepositoryScanResultFilter{

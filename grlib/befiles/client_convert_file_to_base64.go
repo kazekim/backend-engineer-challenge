@@ -11,7 +11,7 @@ import (
 	"os"
 )
 
-//ConvertFileToBase64 convert local file to base64 string
+// ConvertFileToBase64 convert local file to base64 string
 func (c *defaultClient) ConvertFileToBase64(file FileData) (*string, grerrors.Error) {
 
 	f, err := os.Open(file.FullPath)

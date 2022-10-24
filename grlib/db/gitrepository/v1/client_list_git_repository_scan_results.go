@@ -6,7 +6,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 )
 
-//ListGitRepositoryScanResults list git repository scan result with filter
+// ListGitRepositoryScanResults list git repository scan result with filter
 func (c *defaultClient) ListGitRepositoryScanResults(filter grgitrepositorydbdaos.GitRepositoryScanResultFilter, values ...int64) (*[]grgitrepositorydbdaos.GitRepositoryScanResultWithDetail, int64, grerrors.Error) {
 
 	var daos []grgitrepositorydbdaos.GitRepositoryScanResultWithDetail

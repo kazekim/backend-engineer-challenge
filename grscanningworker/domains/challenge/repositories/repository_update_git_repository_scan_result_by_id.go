@@ -5,7 +5,7 @@ import (
 	challengemodels "github.com/kazekim/backend-engineer-challenge/grscanningworker/domains/challenge/models"
 )
 
-//UpdateGitRepositoryScanResultById update git repository scan result by result id and update datas with db client
+// UpdateGitRepositoryScanResultById update git repository scan result by result id and update datas with db client
 func (r *defaultRepository) UpdateGitRepositoryScanResultById(id string, data challengemodels.UpdateGitRepositoryScanResultData) grerrors.Error {
 
 	uDb := r.grc.UpdateGitRepositoryScanResultById(id)

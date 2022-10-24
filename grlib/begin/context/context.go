@@ -9,7 +9,7 @@ type Context struct {
 	Parameters interface{}
 }
 
-//New create new context from gin's context
+// New create new context from gin's context
 func New(ctx gin.Context) *Context {
 	return &Context{
 		Context: ctx,

@@ -12,14 +12,14 @@ type defaultWhereQueryBuilder struct {
 	args       []interface{}
 }
 
-//NewWhereQueryBuilder create where query builder
+// NewWhereQueryBuilder create where query builder
 func NewWhereQueryBuilder() WhereQueryBuilder {
 	return &defaultWhereQueryBuilder{
 		args: []interface{}{},
 	}
 }
 
-//Where add wher clause
+// Where add wher clause
 func (b *defaultWhereQueryBuilder) Where(fieldName string, value interface{}, op WhereOperator) {
 	if b.whereQuery != "" {
 		b.whereQuery = fmt.Sprintf("%v and %v %v $%d", b.whereQuery, fieldName, op, len(b.args)+1)
@@ -36,7 +36,7 @@ func (b *defaultWhereQueryBuilder) Where(fieldName string, value interface{}, op
 	b.args = append(b.args, value)
 }
 
-//BuildQuery create where query string and return with arguments
+// BuildQuery create where query string and return with arguments
 func (b *defaultWhereQueryBuilder) BuildQuery() (string, []interface{}) {
 	return b.whereQuery, b.args
 }

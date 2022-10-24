@@ -6,7 +6,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 )
 
-//NamedExec create row in database with query from struct
+// NamedExec create row in database with query from struct
 func (c *defaultClient) NamedExec(paramQuery, valueQuery string, arg interface{}) (sql.Result, grerrors.Error) {
 
 	tableName, vErr := parseTableName(arg)

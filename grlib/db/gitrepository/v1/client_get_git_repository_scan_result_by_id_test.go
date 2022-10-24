@@ -9,7 +9,7 @@ import (
 	"testing"
 )
 
-//TestDefaultClient_GetGitRepositoryScanResultById test case for defaultClient GetGitRepositoryScanResultById
+// TestDefaultClient_GetGitRepositoryScanResultById test case for defaultClient GetGitRepositoryScanResultById
 func TestDefaultClient_GetGitRepositoryScanResultById(t *testing.T) {
 
 	rId := "xxx"

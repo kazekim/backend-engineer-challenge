@@ -5,7 +5,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 )
 
-//PublishStartGitRepositoryScanningMessage send git repository scanning job into message queue for waiting to start job
+// PublishStartGitRepositoryScanningMessage send git repository scanning job into message queue for waiting to start job
 func (c *defaultClient) PublishStartGitRepositoryScanningMessage(serverId string, data PublishStartGitRepositoryScanningMessageParams) grerrors.Error {
 
 	messageBytes, err := json.Marshal(data)

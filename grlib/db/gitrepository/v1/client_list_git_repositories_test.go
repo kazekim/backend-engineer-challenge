@@ -10,7 +10,7 @@ import (
 	"testing"
 )
 
-//TestDefaultClient_ListGitRepositoriesById test case for defaultClient ListGitRepositoriesById
+// TestDefaultClient_ListGitRepositoriesById test case for defaultClient ListGitRepositoriesById
 func TestDefaultClient_ListGitRepositoriesById(t *testing.T) {
 
 	filter := grgitrepositorydbdaos.GitRepositoryFilter{}
@@ -56,6 +56,5 @@ func TestDefaultClient_ListGitRepositoriesById(t *testing.T) {
 		assert.Nil(t, ms)
 		assert.Equal(t, int64(0), count)
 	})
-
 
 }

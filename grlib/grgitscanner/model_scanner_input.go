@@ -6,7 +6,7 @@ type ScannerInput struct {
 	Line     int64  `json:"line"`
 }
 
-//NewScannerInput new ScannerInput data from parameters
+// NewScannerInput new ScannerInput data from parameters
 func NewScannerInput(data, filePath string, line int64) ScannerInput {
 	m := ScannerInput{
 		FilePath: filePath,

@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-//StoreFileLocal store file from request to local temp path in config
+// StoreFileLocal store file from request to local temp path in config
 func (c *defaultClient) StoreFileLocal(file *multipart.FileHeader) (*FileData, grerrors.Error) {
 
 	if c.maxFileSize > 0 && file.Size > c.maxFileSize {

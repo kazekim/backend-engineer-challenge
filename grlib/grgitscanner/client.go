@@ -19,7 +19,7 @@ type defaultClient struct {
 	gc  begit.Client
 }
 
-//NewClient new git scanner client
+// NewClient new git scanner client
 func NewClient(cfg *Config, fc befiles.Client) Client {
 
 	gc := begit.NewClient(cfg.GitConfig(), fc)

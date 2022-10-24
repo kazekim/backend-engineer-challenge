@@ -13,8 +13,8 @@ import (
 func TestDefaultClient_CreateGitRepository(t *testing.T) {
 
 	params := grgitrepositorydbdaos.GitRepository{
-		Name: "xxx",
-		Url: "url",
+		Name:     "xxx",
+		Url:      "url",
 		IsActive: true,
 	}
 

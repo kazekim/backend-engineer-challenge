@@ -6,7 +6,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 )
 
-//ListGitRepositories list git repositories with filter
+// ListGitRepositories list git repositories with filter
 func (c *defaultClient) ListGitRepositories(filter grgitrepositorydbdaos.GitRepositoryFilter, values ...int64) (*[]grgitrepositorydbdaos.GitRepository, int64, grerrors.Error) {
 
 	var daos []grgitrepositorydbdaos.GitRepository

@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-//ListFiles list all files in git include absolute path
+// ListFiles list all files in git include absolute path
 func (g *defaultGit) ListFiles() (*[]string, grerrors.Error) {
 
 	if g.fullPath == nil {
@@ -22,7 +22,7 @@ func (g *defaultGit) ListFiles() (*[]string, grerrors.Error) {
 	return files, nil
 }
 
-//listFilesInDir list files in dir recursive func
+// listFilesInDir list files in dir recursive func
 func (g *defaultGit) listFilesInDir(path string) (*[]string, grerrors.Error) {
 
 	fs, err := ioutil.ReadDir(path)

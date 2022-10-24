@@ -17,7 +17,7 @@ type defaultClient struct {
 	maxFileSize int64
 }
 
-//NewClient init new file client
+// NewClient init new file client
 func NewClient(rootPath string) (Client, grerrors.Error) {
 
 	vErr := CreateDirectory(rootPath)

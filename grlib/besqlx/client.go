@@ -27,7 +27,7 @@ type defaultClient struct {
 	db  *sqlx.DB
 }
 
-//NewClient init besqlx client
+// NewClient init besqlx client
 func NewClient(cfg *Config) Client {
 
 	return &defaultClient{

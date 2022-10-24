@@ -10,6 +10,7 @@ import (
 	grwenv "github.com/kazekim/backend-engineer-challenge/grscanningworker/env"
 	grwmodels "github.com/kazekim/backend-engineer-challenge/grscanningworker/models"
 	grwrouters "github.com/kazekim/backend-engineer-challenge/grscanningworker/routers"
+	"log"
 )
 
 func main() {
@@ -17,12 +18,14 @@ func main() {
 	var cfg grwenv.Environment
 	err := beenv.LoadConfig(&cfg)
 	if err != nil {
-		panic(err)
+		log.Println(err)
+		return
 	}
 
 	fc, vErr := befiles.NewClient("temp")
 	if vErr != nil {
-		panic(vErr)
+		log.Println(vErr)
+		return
 	}
 
 	gsc := grgitscanner.NewClient(&cfg.GitScannerConfig, fc)
@@ -32,7 +35,8 @@ func main() {
 	dbc := besqlx.NewClient(&cfg.DatabaseConfig)
 	err = dbc.Connect()
 	if err != nil {
-		panic(err)
+		log.Println(err)
+		return
 	}
 
 	grdbc := grgitrepositorydb.NewClient(dbc)

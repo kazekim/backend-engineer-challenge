@@ -12,7 +12,7 @@ import (
 	"testing"
 )
 
-//TestDefaultUseCase_CreateGitRepository test function for use case CreateGitRepository func
+// TestDefaultUseCase_CreateGitRepository test function for use case CreateGitRepository func
 func TestDefaultUseCase_CreateGitRepository(t *testing.T) {
 
 	data := challengemodels.CreateGitRepositoryData{

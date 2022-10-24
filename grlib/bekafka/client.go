@@ -11,7 +11,7 @@ type defaultClient struct {
 	cfg *Config
 }
 
-//NewClient init bekafka client
+// NewClient init bekafka client
 func NewClient(cfg *Config) Client {
 	return &defaultClient{
 		cfg: cfg,

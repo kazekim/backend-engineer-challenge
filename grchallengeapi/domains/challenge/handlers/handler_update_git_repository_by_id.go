@@ -5,7 +5,7 @@ import (
 	begincontext "github.com/kazekim/backend-engineer-challenge/grlib/begin/context"
 )
 
-//FrontUpdateGitRepositoryById update git repository by id handler
+// FrontUpdateGitRepositoryById update git repository by id handler
 func (h *defaultHandler) FrontUpdateGitRepositoryById(c *begincontext.Context) {
 
 	var req challengemodels.FrontUpdateGitRepositoryByIdRequest

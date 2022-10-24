@@ -6,7 +6,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grscankafka"
 )
 
-//StartGitRepositoryScanning start git repository scanning by repository id
+// StartGitRepositoryScanning start git repository scanning by repository id
 func (u *defaultUseCase) StartGitRepositoryScanning(id string) (*grmodels.GitRepositoryScanResult, grerrors.Error) {
 
 	m, vErr := u.cr.StartGitRepositoryScanning(id)

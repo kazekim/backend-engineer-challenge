@@ -5,7 +5,7 @@ import (
 	begincontext "github.com/kazekim/backend-engineer-challenge/grlib/begin/context"
 )
 
-//FrontGetGitRepositoryById get git repository by id handler
+// FrontGetGitRepositoryById get git repository by id handler
 func (h *defaultHandler) FrontGetGitRepositoryById(c *begincontext.Context) {
 
 	var req challengemodels.FrontGetGitRepositoryByIdRequest

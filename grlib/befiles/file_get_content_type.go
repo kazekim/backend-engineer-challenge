@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-//GetFileContentType get content type of specified file
+// GetFileContentType get content type of specified file
 func GetFileContentType(out *os.File) (string, error) {
 
 	// Only the first 512 bytes are used to sniff the content type.

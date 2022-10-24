@@ -14,7 +14,7 @@ type SelectQueryBuilder struct {
 	Args         []interface{} `json:"args"`
 }
 
-//Get query normal select query and return first value found in 'dest' struct
+// Get query normal select query and return first value found in 'dest' struct
 func (c *defaultClient) Get(dest interface{}, query string, args ...interface{}) grerrors.Error {
 	err := c.db.Get(dest, query, args...)
 	if err != nil {
@@ -23,7 +23,7 @@ func (c *defaultClient) Get(dest interface{}, query string, args ...interface{})
 	return nil
 }
 
-//Select do select query with select query builder
+// Select do select query with select query builder
 func (c *defaultClient) Select(model interface{}, dest interface{}, qb SelectQueryBuilder) grerrors.Error {
 
 	tableName, vErr := parseTableName(model)
@@ -54,7 +54,7 @@ func (c *defaultClient) Select(model interface{}, dest interface{}, qb SelectQue
 	return nil
 }
 
-//Count count all data in database with where clause
+// Count count all data in database with where clause
 func (c *defaultClient) Count(model interface{}, whereQuery string, args []interface{}) (int64, grerrors.Error) {
 
 	if whereQuery != "" {

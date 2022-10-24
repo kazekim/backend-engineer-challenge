@@ -22,12 +22,12 @@ func read(path string, env interface{}) error {
 	return nil
 }
 
-//LoadConfig read yml config from default path and map to interface{}
+// LoadConfig read yml config from default path and map to interface{}
 func LoadConfig(env interface{}) error {
 	return LoadConfigFromPath(EnvConfigPath, env)
 }
 
-//LoadConfigFromPath read yml config from path and map to interface{}
+// LoadConfigFromPath read yml config from path and map to interface{}
 func LoadConfigFromPath(cfgPath string, env interface{}) error {
 	configPath := os.Getenv(cfgPath)
 	if configPath == "" {

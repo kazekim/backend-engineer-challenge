@@ -24,7 +24,7 @@ type defaultUpdateGitRepositoryScanResultDB struct {
 	helper *besqlx.UpdateHelper
 }
 
-//NewUpdateGitRepositoryScanResultDBById create git repository scan result update db helper
+// NewUpdateGitRepositoryScanResultDBById create git repository scan result update db helper
 func NewUpdateGitRepositoryScanResultDBById(db besqlx.Client, id string) UpdateGitRepositoryScanResultDB {
 
 	helper := db.NewUpdateHelper()
@@ -35,7 +35,7 @@ func NewUpdateGitRepositoryScanResultDBById(db besqlx.Client, id string) UpdateG
 	}
 }
 
-//Commit do commit update git repository database data
+// Commit do commit update git repository database data
 func (u *defaultUpdateGitRepositoryScanResultDB) Commit() grerrors.Error {
 
 	var m grgitrepositorydbdaos.GitRepositoryScanResult
@@ -47,13 +47,13 @@ func (u *defaultUpdateGitRepositoryScanResultDB) Commit() grerrors.Error {
 	return nil
 }
 
-//Status set parameter to update status field
+// Status set parameter to update status field
 func (u *defaultUpdateGitRepositoryScanResultDB) Status(value grenums.ScanStatus) UpdateGitRepositoryScanResultDB {
 	u.helper.SetParam("status", value)
 	return u
 }
 
-//Findings set parameter to update findings field
+// Findings set parameter to update findings field
 func (u *defaultUpdateGitRepositoryScanResultDB) Findings(value interface{}) UpdateGitRepositoryScanResultDB {
 
 	b, _ := bejson.Marshal(value)
@@ -61,7 +61,7 @@ func (u *defaultUpdateGitRepositoryScanResultDB) Findings(value interface{}) Upd
 	return u
 }
 
-//QueuedAt set parameter to update queued_at field
+// QueuedAt set parameter to update queued_at field
 func (u *defaultUpdateGitRepositoryScanResultDB) QueuedAt(value time.Time) UpdateGitRepositoryScanResultDB {
 	t := sql.NullTime{
 		Time:  value,
@@ -71,7 +71,7 @@ func (u *defaultUpdateGitRepositoryScanResultDB) QueuedAt(value time.Time) Updat
 	return u
 }
 
-//ScanningAt set parameter to update scanning_at field
+// ScanningAt set parameter to update scanning_at field
 func (u *defaultUpdateGitRepositoryScanResultDB) ScanningAt(value time.Time) UpdateGitRepositoryScanResultDB {
 	t := sql.NullTime{
 		Time:  value,
@@ -81,7 +81,7 @@ func (u *defaultUpdateGitRepositoryScanResultDB) ScanningAt(value time.Time) Upd
 	return u
 }
 
-//FinishedAt set parameter to update finished_at field
+// FinishedAt set parameter to update finished_at field
 func (u *defaultUpdateGitRepositoryScanResultDB) FinishedAt(value time.Time) UpdateGitRepositoryScanResultDB {
 	t := sql.NullTime{
 		Time:  value,

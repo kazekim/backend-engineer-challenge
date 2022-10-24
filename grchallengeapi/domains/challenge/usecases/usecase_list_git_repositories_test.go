@@ -12,7 +12,7 @@ import (
 	"testing"
 )
 
-//TestDefaultUseCase_ListGitRepositories test function for use case ListGitRepositories func
+// TestDefaultUseCase_ListGitRepositories test function for use case ListGitRepositories func
 func TestDefaultUseCase_ListGitRepositories(t *testing.T) {
 
 	filter := challengemodels.GitRepositoryFilterData{}

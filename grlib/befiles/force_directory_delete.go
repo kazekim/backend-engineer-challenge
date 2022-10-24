@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-//ForceDeleteDirectory force delete directory with path
+// ForceDeleteDirectory force delete directory with path
 func ForceDeleteDirectory(name string) grerrors.Error {
 
 	if _, err := os.Stat(name); !os.IsNotExist(err) {

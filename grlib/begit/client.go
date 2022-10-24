@@ -14,7 +14,7 @@ type defaultClient struct {
 	fc  befiles.Client
 }
 
-//NewClient new git client
+// NewClient new git client
 func NewClient(cfg *Config, fc befiles.Client) Client {
 	return &defaultClient{
 		cfg: cfg,
@@ -22,12 +22,12 @@ func NewClient(cfg *Config, fc befiles.Client) Client {
 	}
 }
 
-//Config return git client config
+// Config return git client config
 func (c *defaultClient) Config() *Config {
 	return c.cfg
 }
 
-//FileClient return file client config
+// FileClient return file client config
 func (c *defaultClient) FileClient() befiles.Client {
 	return c.fc
 }

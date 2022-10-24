@@ -14,7 +14,7 @@ import (
 	"strings"
 )
 
-//StoreImageBase64Local store base64 image to local temp path defined in config
+// StoreImageBase64Local store base64 image to local temp path defined in config
 func (c *defaultClient) StoreImageBase64Local(data string) (*FileData, grerrors.Error) {
 
 	b64data := data[strings.IndexByte(data, ',')+1:]

@@ -78,3 +78,49 @@ The Result entity should have the following properties and be stored in a databa
 | Extra Features    | 0-2    |
 
 
+## Implementation
+
+**Requirement:**
+
+Please make sure that you have installed these applications before you can run the project
+- docker
+- docker-compose
+- Makefile
+- golang (only if you need to have local develop)
+
+**How to run project:**
+
+Before you start, please note that this setup will be used for local build only. If you need to deploy it somewhere, 
+you need to change some configurations first before you can do it.
+
+- To initial the enviroment, please run this command
+> make init
+
+It will initiate all required files and config including creating docker environments for running the project
+
+- Start the Kafka and PostgreSQL docker by running this command
+
+> make service-start
+
+This command will help you create database for the project include migrate some initial database schemas into it.
+
+**Important:** Before go to the next step please make sure that the Kafka have finished starting. Kafka take quite a long time 
+before it can be finished. So you can use this command to check if it was finished starting or not.
+
+> make log-kafka
+
+- This step is to run Challenge API and  Challenge Worker. If you run in the first time, you should build the containers
+before. Please use this command to build the containers and start the containers automatically.
+
+> make api-build-start
+
+But if you don't need to start docker service yet and need to build the containers only, you can use this command.
+
+> make build
+
+Later, if you have already built the containers or is not the first time you run the containers, you can use this command 
+to start the api and worker container directly. (This way will be faster because we don't need to build the containers)
+
+> make api-start
+
+

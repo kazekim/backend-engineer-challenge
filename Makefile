@@ -1,6 +1,5 @@
-init-start:
+init: prepare-config
 	docker network create guardrails
-	service-start api-build-start
 service-start:
 	docker-compose -f docker-compose-service.yml up -d
 service-stop:
@@ -11,6 +10,9 @@ api-build-start:
 	docker-compose -f docker-compose-api.yml up -d --build
 api-stop:
 	docker-compose -f docker-compose-api.yml down
+build:
+	docker build -f Dockerfile-API.Local -t grchallengeapi .
+	docker build -f Dockerfile-Worker.Local -t grscanningworker .
 start:
 	service-start api-build-start
 stop: service-stop api-stop

@@ -27,3 +27,11 @@ log-api:
 	docker logs -f backend-engineer-challenge_grchallengeapi_1
 log-worker:
 	docker logs -f backend-engineer-challenge_grscanningworker_1
+prepare-test:
+	cd grchallengeapi && sh scripts/generate_mock.sh
+	cd grscanningworker && sh scripts/generate_mock.sh
+	cd grlib && sh scripts/generate_mock.sh
+test:
+	cd grchallengeapi && go test ./...
+	cd grscanningworker && go test ./...
+	cd grlib && go test ./...

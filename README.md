@@ -230,4 +230,16 @@ To run project locally, you need to go into the project directory and run these 
 > go run cmd/grscanningworker/main.go
 
 
+## Unit Test
 
+To test the Unit test in this project, please run these command.
+
+In Root directory, To generate mock files, please run this command 
+
+> make prepare-test
+
+To start testing, please run this command
+
+> make test
+
+Then, you will get the test result

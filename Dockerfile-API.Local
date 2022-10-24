@@ -65,7 +65,7 @@ RUN addgroup -g ${GID} -S ${USER} \
 USER ${UID}
 
 COPY --from=build /data/app/grchallengeapi-linux-x64 /data/app/
-COPY --chown=${USER} grchallengeapi/configs /data/app/configs
+COPY --chown=${USER} docker_configs/grchallengeapi /data/app/configs
 
 WORKDIR /data/app
 

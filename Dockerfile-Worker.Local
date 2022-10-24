@@ -65,7 +65,7 @@ RUN addgroup -g ${GID} -S ${USER} \
 USER ${UID}
 
 COPY --from=build /data/app/grscanningworker-linux-x64 /data/app/
-COPY --chown=${USER} grscanningworker/configs /data/app/configs
+COPY --chown=${USER} docker_configs/grscanningworker /data/app/configs
 
 WORKDIR /data/app
 

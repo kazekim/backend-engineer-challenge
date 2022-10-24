@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-//Unzip un-zip the file in src to destination path
+// Unzip un-zip the file in src to destination path
 func Unzip(src string, destination string) ([]FileData, error) {
 	// a variable that will store any
 	//file names available in a array of strings

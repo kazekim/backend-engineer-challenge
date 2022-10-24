@@ -15,7 +15,7 @@ type BaseResponse struct {
 	Data    interface{}        `json:"data"`
 }
 
-//wrapResponse create default response with code and message
+// wrapResponse create default response with code and message
 func (c *Context) wrapResponse(v interface{}) BaseResponse {
 	resp := BaseResponse{
 		Code:    grerrors.SuccessCode,
@@ -25,7 +25,7 @@ func (c *Context) wrapResponse(v interface{}) BaseResponse {
 	return resp
 }
 
-//CreateResponseSuccess create default response from struct
+// CreateResponseSuccess create default response from struct
 func (c *Context) CreateResponseSuccess(v interface{}) {
 	resp := c.wrapResponse(v)
 	c.JSON(http.StatusOK, resp)

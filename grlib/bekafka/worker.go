@@ -13,7 +13,7 @@ type Worker struct {
 	conn sarama.Consumer
 }
 
-//NewWorker init new kafka worker
+// NewWorker init new kafka worker
 func (c *defaultClient) NewWorker() (*Worker, grerrors.Error) {
 
 	config := sarama.NewConfig()
@@ -29,7 +29,7 @@ func (c *defaultClient) NewWorker() (*Worker, grerrors.Error) {
 	}, nil
 }
 
-//ConsumePartition set waiting to receive kafka message from producer
+// ConsumePartition set waiting to receive kafka message from producer
 func (w *Worker) ConsumePartition(topic string, action func(topic, message string) WorkerStatus) grerrors.Error {
 
 	consumer, err := w.conn.ConsumePartition(topic, 0, sarama.OffsetNewest)

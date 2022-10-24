@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-//ReadFileInfo read file info of file in full path
+// ReadFileInfo read file info of file in full path
 func ReadFileInfo(fullPath string) (*FileData, error) {
 	f, err := os.Open(fullPath)
 	if err != nil {

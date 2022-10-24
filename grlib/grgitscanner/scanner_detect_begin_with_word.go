@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-//detectBeginWithWord scan data inline with begin with word rules and return results
+// detectBeginWithWord scan data inline with begin with word rules and return results
 func (s *defaultScanner) detectBeginWithWord(input ScannerInput) (bool, *Finding, grerrors.Error) {
 
 	isMatched := strings.HasPrefix(input.Data, s.rule.Word)
@@ -18,7 +18,7 @@ func (s *defaultScanner) detectBeginWithWord(input ScannerInput) (bool, *Finding
 	return false, nil, nil
 }
 
-//newGitScannerResultForScannerTypeBeginWithWord init GitScannerResult from rule and input object
+// newGitScannerResultForScannerTypeBeginWithWord init GitScannerResult from rule and input object
 func newGitScannerResultForScannerTypeBeginWithWord(rule ScannerRule, input ScannerInput) Finding {
 	result := Finding{
 		Type:   rule.Type,

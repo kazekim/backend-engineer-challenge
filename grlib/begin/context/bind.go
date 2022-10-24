@@ -50,7 +50,7 @@ func (c *Context) BindJSONAndValidate(i interface{}) grerrors.Error {
 	return nil
 }
 
-//parsePathParams parse path parameters and store in context
+// parsePathParams parse path parameters and store in context
 func (c *Context) parsePathParams(form interface{}) {
 	formValue := reflect.ValueOf(form)
 	if formValue.Kind() == reflect.Ptr {
@@ -125,7 +125,7 @@ func parseFieldError(e validator.FieldError) string {
 	}
 }
 
-//parseMarshallingError parse marshalling error to human-readable string
+// parseMarshallingError parse marshalling error to human-readable string
 func parseMarshallingError(e json.UnmarshalTypeError) string {
 	return fmt.Sprintf("The field %s must be a %s", e.Field, e.Type.String())
 }

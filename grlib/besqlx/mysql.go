@@ -6,7 +6,7 @@ import (
 	"github.com/jmoiron/sqlx"
 )
 
-//ConnectMySQL link to database with mysql driver
+// ConnectMySQL link to database with mysql driver
 func (c *defaultClient) ConnectMySQL() error {
 
 	var dataSource = fmt.Sprintf(`%v:%v@(%v:%v)/%v?parseTime=true&locAsia%%2FBangkok`, c.cfg.DatabaseUsername, c.cfg.DatabasePassword, c.cfg.DatabaseUrl, c.cfg.DatabasePort, c.cfg.DatabaseName)

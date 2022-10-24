@@ -18,7 +18,7 @@ type defaultRouterGroup struct {
 	g gin.RouterGroup
 }
 
-//Group create new sub RouterGroup from relativePath
+// Group create new sub RouterGroup from relativePath
 func (rg *defaultRouterGroup) Group(relativePath string) RouterGroup {
 	g := rg.g.Group(relativePath)
 	return &defaultRouterGroup{
@@ -26,28 +26,28 @@ func (rg *defaultRouterGroup) Group(relativePath string) RouterGroup {
 	}
 }
 
-//POST create POST request with handler
+// POST create POST request with handler
 func (rg *defaultRouterGroup) POST(relativePath string, handler HandlerFunc) {
 	rg.g.POST(relativePath, func(context *gin.Context) {
 		handler(begincontext.New(*context))
 	})
 }
 
-//GET create GET request with handler
+// GET create GET request with handler
 func (rg *defaultRouterGroup) GET(relativePath string, handler HandlerFunc) {
 	rg.g.GET(relativePath, func(context *gin.Context) {
 		handler(begincontext.New(*context))
 	})
 }
 
-//PUT create PUT request with handler
+// PUT create PUT request with handler
 func (rg *defaultRouterGroup) PUT(relativePath string, handler HandlerFunc) {
 	rg.g.PUT(relativePath, func(context *gin.Context) {
 		handler(begincontext.New(*context))
 	})
 }
 
-//DELETE create DELETE request with handler
+// DELETE create DELETE request with handler
 func (rg *defaultRouterGroup) DELETE(relativePath string, handler HandlerFunc) {
 	rg.g.DELETE(relativePath, func(context *gin.Context) {
 		handler(begincontext.New(*context))

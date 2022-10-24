@@ -18,7 +18,7 @@ type defaultUpdateGitRepositoryDB struct {
 	helper *besqlx.UpdateHelper
 }
 
-//NewUpdateGitRepositoryDBById create git repository update db helper
+// NewUpdateGitRepositoryDBById create git repository update db helper
 func NewUpdateGitRepositoryDBById(db besqlx.Client, id string) UpdateGitRepositoryDB {
 
 	helper := db.NewUpdateHelper()
@@ -29,7 +29,7 @@ func NewUpdateGitRepositoryDBById(db besqlx.Client, id string) UpdateGitReposito
 	}
 }
 
-//Commit do commit update git repository database data
+// Commit do commit update git repository database data
 func (u *defaultUpdateGitRepositoryDB) Commit() grerrors.Error {
 
 	var m grgitrepositorydbdaos.GitRepository
@@ -41,19 +41,19 @@ func (u *defaultUpdateGitRepositoryDB) Commit() grerrors.Error {
 	return nil
 }
 
-//Name set parameter to update name field
+// Name set parameter to update name field
 func (u *defaultUpdateGitRepositoryDB) Name(value string) UpdateGitRepositoryDB {
 	u.helper.SetParam("name", value)
 	return u
 }
 
-//Url set parameter to update url field
+// Url set parameter to update url field
 func (u *defaultUpdateGitRepositoryDB) Url(value string) UpdateGitRepositoryDB {
 	u.helper.SetParam("url", value)
 	return u
 }
 
-//IsActive set parameter to update is_active field
+// IsActive set parameter to update is_active field
 func (u *defaultUpdateGitRepositoryDB) IsActive(value bool) UpdateGitRepositoryDB {
 	u.helper.SetParam("is_active", value)
 	return u

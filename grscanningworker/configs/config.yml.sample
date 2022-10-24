@@ -13,6 +13,7 @@ database_config:
   database_disable_ssl_mode: true
 git_scanner_config:
   root_path: "temp"
+  channel_amount_per_request: 50
 git_scanner_mq_config:
   kafka_broker_url: localhost:29092
   kafka_server_id: git_repository_scanner_01

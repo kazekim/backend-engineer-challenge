@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-//ScanFileByLine scan file and do action in rf func by line
+// ScanFileByLine scan file and do action in rf func by line
 func (g *defaultGit) ScanFileByLine(fileFullPath string, rf func(data string, line int64) grerrors.Error) grerrors.Error {
 
 	if g.fullPath == nil {

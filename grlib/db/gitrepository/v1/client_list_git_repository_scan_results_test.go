@@ -10,7 +10,7 @@ import (
 	"testing"
 )
 
-//TestDefaultClient_ListGitRepositoryScanResultById test case for defaultClient TestDefaultClient_ListGitRepositoryScanResultById
+// TestDefaultClient_ListGitRepositoryScanResultById test case for defaultClient TestDefaultClient_ListGitRepositoryScanResultById
 func TestDefaultClient_ListGitRepositoryScanResultById(t *testing.T) {
 
 	filter := grgitrepositorydbdaos.GitRepositoryScanResultFilter{}
@@ -56,6 +56,5 @@ func TestDefaultClient_ListGitRepositoryScanResultById(t *testing.T) {
 		assert.Nil(t, ms)
 		assert.Equal(t, int64(0), count)
 	})
-
 
 }

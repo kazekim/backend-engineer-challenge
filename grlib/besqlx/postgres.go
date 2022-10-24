@@ -6,7 +6,7 @@ import (
 	_ "github.com/lib/pq"
 )
 
-//ConnectPostgres link to database with postgres driver
+// ConnectPostgres link to database with postgres driver
 func (c *defaultClient) ConnectPostgres() error {
 	sslMode := "require"
 	if c.cfg.DatabaseDisableSSLMode {

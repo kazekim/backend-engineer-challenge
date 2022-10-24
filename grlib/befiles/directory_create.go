@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-//CreateDirectory create directory with path
+// CreateDirectory create directory with path
 func CreateDirectory(path string) grerrors.Error {
 
 	if _, err := os.Stat(path); !os.IsNotExist(err) {

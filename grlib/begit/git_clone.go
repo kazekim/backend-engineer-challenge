@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-//Clone do clone git from repository
+// Clone do clone git from repository
 func (g *defaultGit) Clone() grerrors.Error {
 
 	path := xid.New().String()

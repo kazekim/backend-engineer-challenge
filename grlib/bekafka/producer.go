@@ -11,7 +11,7 @@ type Producer struct {
 	conn sarama.SyncProducer
 }
 
-//NewProducer init kafka producer
+// NewProducer init kafka producer
 func (c *defaultClient) NewProducer() (*Producer, grerrors.Error) {
 	config := sarama.NewConfig()
 	config.Producer.Return.Successes = true
@@ -28,7 +28,7 @@ func (c *defaultClient) NewProducer() (*Producer, grerrors.Error) {
 	}, nil
 }
 
-//Close close kafka producer
+// Close close kafka producer
 func (p *Producer) Close() grerrors.Error {
 	err := p.conn.Close()
 	if err != nil {
@@ -37,7 +37,7 @@ func (p *Producer) Close() grerrors.Error {
 	return nil
 }
 
-//SendMessage start sending message to kafka with topic
+// SendMessage start sending message to kafka with topic
 func (p *Producer) SendMessage(topic, message string) grerrors.Error {
 	msg := &sarama.ProducerMessage{
 		Topic: topic,

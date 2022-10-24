@@ -6,7 +6,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 )
 
-//GetGitRepositoryById get git repository data by id
+// GetGitRepositoryById get git repository data by id
 func (c *defaultClient) GetGitRepositoryById(id string) (*grgitrepositorydbdaos.GitRepository, grerrors.Error) {
 
 	var dao grgitrepositorydbdaos.GitRepository

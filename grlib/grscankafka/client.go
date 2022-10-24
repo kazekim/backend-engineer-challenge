@@ -15,7 +15,7 @@ type defaultClient struct {
 	kc  bekafka.Client
 }
 
-//NewClient init new git repository scan kafka client
+// NewClient init new git repository scan kafka client
 func NewClient(cfg *Config) Client {
 
 	kCfg := bekafka.Config{

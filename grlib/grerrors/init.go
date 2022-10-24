@@ -2,7 +2,7 @@ package grerrors
 
 import "fmt"
 
-//NewDefaultError new error with internal error code and specify error
+// NewDefaultError new error with internal error code and specify error
 func NewDefaultError(err error) Error {
 	return &defaultError{
 		CodeValue:    ErrCodeInternalServerError,
@@ -10,7 +10,7 @@ func NewDefaultError(err error) Error {
 	}
 }
 
-//NewDefaultErrorWithMessage new error with internal error code and specify message
+// NewDefaultErrorWithMessage new error with internal error code and specify message
 func NewDefaultErrorWithMessage(message string) Error {
 	return &defaultError{
 		CodeValue:    ErrCodeInternalServerError,
@@ -18,7 +18,7 @@ func NewDefaultErrorWithMessage(message string) Error {
 	}
 }
 
-//NewBadInputError new error with bad input error code and specify error
+// NewBadInputError new error with bad input error code and specify error
 func NewBadInputError(err error) Error {
 	return &defaultError{
 		CodeValue:    ErrCodeBadInput,
@@ -26,7 +26,7 @@ func NewBadInputError(err error) Error {
 	}
 }
 
-//NewBadInputErrorWithMessage new error with bad input error code and specify message
+// NewBadInputErrorWithMessage new error with bad input error code and specify message
 func NewBadInputErrorWithMessage(message string) Error {
 	return &defaultError{
 		CodeValue:    ErrCodeBadInput,
@@ -34,7 +34,7 @@ func NewBadInputErrorWithMessage(message string) Error {
 	}
 }
 
-//NewKafkaProducerError new error with kafka producer error code and specify message
+// NewKafkaProducerError new error with kafka producer error code and specify message
 func NewKafkaProducerError(err error) Error {
 	return &defaultError{
 		CodeValue:    ErrCodeKafkaProducerFailed,
@@ -42,7 +42,7 @@ func NewKafkaProducerError(err error) Error {
 	}
 }
 
-//NewKafkaConsumerError new error with kafka consumer error code and specify message
+// NewKafkaConsumerError new error with kafka consumer error code and specify message
 func NewKafkaConsumerError(err error) Error {
 	return &defaultError{
 		CodeValue:    ErrCodeKafkaConsumerFailed,

@@ -9,7 +9,7 @@ type defaultGin struct {
 	apiVersionGroup RouterGroup
 }
 
-//New create new Gin interface
+// New create new Gin interface
 func New() Gin {
 
 	g := gin.New()

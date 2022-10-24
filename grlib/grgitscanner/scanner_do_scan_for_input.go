@@ -5,7 +5,7 @@ import (
 	"github.com/kazekim/backend-engineer-challenge/grlib/grerrors"
 )
 
-//DoScanForInput start scan for input with rule that specify
+// DoScanForInput start scan for input with rule that specify
 func (s *defaultScanner) DoScanForInput(input ScannerInput) (*[]Finding, grerrors.Error) {
 
 	var fs []Finding

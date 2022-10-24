@@ -12,7 +12,7 @@ type UpdateHelper struct {
 	db          *sqlx.DB
 }
 
-//NewUpdateHelper init code helper to make update database query code more clean
+// NewUpdateHelper init code helper to make update database query code more clean
 func (c defaultClient) NewUpdateHelper() *UpdateHelper {
 
 	return &UpdateHelper{
@@ -22,17 +22,17 @@ func (c defaultClient) NewUpdateHelper() *UpdateHelper {
 	}
 }
 
-//SetWhereParam add where parameter to helper
+// SetWhereParam add where parameter to helper
 func (h *UpdateHelper) SetWhereParam(key string, value interface{}) {
 	h.whereParams[key] = value
 }
 
-//SetParam add parameter to helper
+// SetParam add parameter to helper
 func (h *UpdateHelper) SetParam(key string, value interface{}) {
 	h.params[key] = value
 }
 
-//CommitUpdateQuery do update query
+// CommitUpdateQuery do update query
 func (h *UpdateHelper) CommitUpdateQuery(model interface{}) grerrors.Error {
 
 	tableName, vErr := parseTableName(model)
@@ -91,7 +91,7 @@ func (h *UpdateHelper) CommitUpdateQuery(model interface{}) grerrors.Error {
 	return nil
 }
 
-//HasChanged check if it has any parameters added to helper or not
+// HasChanged check if it has any parameters added to helper or not
 func (h *UpdateHelper) HasChanged() bool {
 	return len(h.params) > 0
 }
